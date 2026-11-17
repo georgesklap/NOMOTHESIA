@@ -8,97 +8,107 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="ΥΕΦ Νομοθεσία">
-<meta name="description" content="Ενοποιημένη νομοθεσία Υπηρεσίας Εξωτερικής Φρούρησης και σωφρονιστικού συστήματος – με αναζήτηση, offline.">
+<meta name="description" content="Ενοποιημένη νομοθεσία Υπηρεσίας Εξωτερικής Φρούρησης και σωφρονιστικού συστήματος – θεματική πλοήγηση, αναζήτηση, offline.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <title>ΥΕΦ – Νομοθεσία σε ισχύ</title>
 <style>
-:root{--bg:#f3f5f9;--card:#fff;--tx:#1b1f27;--mut:#5d6675;--pri:#1F3864;--pri2:#2F5496;--bd:#dde3ec;--law:#fbfcfe;--lawbd:#8EA9DB;--hl:#ffe36e;
---i:#7a828c;--m:#C55A11;--n:#2E7D32;--d:#C00000;--w:#7030A0;--x:#a3abb5;--fs:16px}
-@media (prefers-color-scheme:dark){:root{--bg:#0f141c;--card:#18202c;--tx:#e6e9ee;--mut:#9aa4b2;--pri:#8fb0ec;--pri2:#9fbdf5;--bd:#2a3444;--law:#141b26;--lawbd:#4c6aa3;--hl:#7a6510;--i:#9aa3ad;--m:#f0955a;--n:#6cc070;--d:#ff6b6b;--w:#c79bf0;--x:#6b7480}}
+:root{--bg:#f2f4f8;--card:#fff;--tx:#18202b;--mut:#5b6474;--pri:#1F3864;--pri2:#2F5496;--line:#e1e6ee;--lawbg:#fbfcfe;--lawbd:#8EA9DB;--hl:#ffe36e;--expl:#eef2f8;
+--i:#6f7883;--m:#C55A11;--n:#2E7D32;--d:#C00000;--w:#7030A0;--x:#9aa2ad;--fs:17px}
+@media (prefers-color-scheme:dark){:root{--bg:#0e131b;--card:#171f2b;--tx:#e7eaef;--mut:#9ba5b3;--pri:#9db9ee;--pri2:#a9c3f5;--line:#273142;--lawbg:#131a25;--lawbd:#4c6aa3;--hl:#7a6510;--expl:#1c2533;--i:#a0a9b4;--m:#f0955a;--n:#6cc070;--d:#ff6b6b;--w:#c79bf0;--x:#6b7480}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--tx);font:var(--fs)/1.5 -apple-system,"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif;padding-bottom:calc(env(safe-area-inset-bottom) + 20px)}
-header{position:sticky;top:0;z-index:5;background:#1F3864;color:#fff;padding:calc(env(safe-area-inset-top) + 8px) 12px 8px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
-@media (prefers-color-scheme:dark){header{background:#16233a}}
-.top{display:flex;align-items:center;gap:6px}
-.top h1{font-size:16px;margin:0;flex:1;line-height:1.2;cursor:pointer}
-.top h1 small{display:block;font-weight:400;opacity:.8;font-size:12px}
-.ib{background:rgba(255,255,255,.16);border:0;color:#fff;border-radius:8px;min-width:38px;height:38px;font-size:15px;font-weight:600;cursor:pointer}
+body{margin:0;background:var(--bg);color:var(--tx);font:var(--fs)/1.6 Roboto,"Noto Sans",-apple-system,"Segoe UI",Arial,sans-serif;padding-bottom:calc(env(safe-area-inset-bottom) + 24px)}
+a{color:var(--pri2)}
+header{position:sticky;top:0;z-index:5;background:#1F3864;color:#fff;padding:calc(env(safe-area-inset-top) + 8px) 10px 10px;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+@media (prefers-color-scheme:dark){header{background:#15223a}}
+.top{display:flex;align-items:center;gap:6px;min-height:42px}
+#back{display:none;background:none;border:0;color:#fff;font-size:30px;line-height:1;width:42px;height:42px;margin-left:-4px;cursor:pointer;border-radius:50%}
+#back:active{background:rgba(255,255,255,.15)}
+.top h1{font-size:17px;margin:0;flex:1;line-height:1.25;cursor:pointer;font-weight:700}
+.top h1 small{display:block;font-weight:400;opacity:.78;font-size:12.5px}
+body.inner .top h1 small{display:none}
+.ib{background:rgba(255,255,255,.14);border:0;color:#fff;border-radius:10px;min-width:40px;height:40px;font-size:15px;font-weight:700;cursor:pointer}
 .sw{position:relative;margin-top:8px}
-#q{width:100%;border:0;border-radius:10px;padding:11px 40px 11px 12px;font-size:16px;background:#fff;color:#111}
-#clr{position:absolute;right:5px;top:5px;border:0;background:none;font-size:22px;color:#777;width:32px;height:32px;display:none;cursor:pointer}
-.chips{display:flex;gap:6px;overflow-x:auto;margin-top:8px;padding-bottom:2px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;border:1px solid rgba(255,255,255,.45);background:transparent;color:#fff;border-radius:16px;padding:4px 11px;font-size:13px;cursor:pointer}
-.chip.on{background:#fff;color:#1F3864}
-main{max-width:860px;margin:0 auto;padding:12px}
-.meta{color:var(--mut);font-size:13px;margin:4px 2px 10px}
-h2.pg{margin:2px 0 4px;color:var(--pri);font-size:1.15em;line-height:1.3}
-.sub{color:var(--mut);font-size:.88em;margin:0 0 12px}
-.gh{display:flex;align-items:center;gap:8px;margin:18px 2px 8px;font-weight:700;color:var(--pri);font-size:.95em;text-transform:none}
-.row{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin-bottom:8px;color:var(--tx);text-decoration:none}
-.row b{flex:1;font-weight:600;line-height:1.3}.row b small{display:block;font-weight:400;color:var(--mut);font-size:.82em;margin-top:2px}
-.row .go{color:var(--mut);font-size:20px}
-.an{min-width:44px;height:30px;padding:0 6px;border-radius:8px;background:var(--pri2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;flex:none}
-@media (prefers-color-scheme:dark){.an{color:#0f141c}}
-.dot{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none;vertical-align:middle}
-.s-i{background:var(--i)}.s-m{background:var(--m)}.s-n{background:var(--n)}.s-d{background:var(--d)}.s-w{background:var(--w)}.s-x{background:var(--x)}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin-bottom:10px;overflow:hidden}
-.card h3{font-size:1em;margin:0 0 6px;color:var(--pri)}
-.crumb{font-size:12px;color:var(--mut);margin-bottom:6px}
-.crumb a{color:var(--pri2);text-decoration:none;font-weight:600}
-.it{margin:0 0 12px}
-.lt{background:var(--law);border-left:3px solid var(--lawbd);padding:6px 10px;font-family:Georgia,"Noto Serif","Times New Roman",serif;font-size:.97em}
-.lt p{margin:0 0 6px}.lt p:last-child{margin:0}
-.it.s-d-it .lt{border-left-color:var(--d);color:var(--mut);text-decoration:line-through;text-decoration-thickness:1px}
-.it.s-x-it .lt{border-left-color:var(--x);color:var(--mut);font-style:italic}
-.it.s-m-it .lt{border-left-color:var(--m)}.it.s-n-it .lt{border-left-color:var(--n)}.it.s-w-it .lt{border-left-color:var(--w)}
-.cm{font-size:11.5px;color:var(--mut);margin:3px 0 0 2px;line-height:1.35}
-.cm .dot{width:7px;height:7px;margin-right:4px;position:relative;top:-1px}
-.cm b{font-weight:700}
-.anote{border-radius:8px;padding:7px 10px;margin:0 0 10px;font-size:.86em;background:rgba(47,84,150,.09);border-left:4px solid #2F5496}
-.note{border-radius:8px;padding:8px 10px;margin:8px 0;font-size:.92em;border-left:4px solid}
-.note b{display:block;font-size:.9em}
-.n-info{background:rgba(47,84,150,.09);border-color:#2F5496}.n-warn{background:rgba(191,143,0,.13);border-color:#BF8F00}.n-pending{background:rgba(197,90,17,.12);border-color:#C55A11}.n-auth{background:rgba(84,130,53,.13);border-color:#548235}
-ul{padding-left:20px;margin:6px 0}li{margin-bottom:5px}p.t{margin:6px 0}
-.tw{overflow-x:auto;margin:6px 0;-webkit-overflow-scrolling:touch}
-.tcap{font-weight:700;font-size:.9em;margin:2px 0 4px;color:var(--pri)}
-table{border-collapse:collapse;font-size:13px;min-width:100%;font-family:-apple-system,Roboto,Arial,sans-serif}
-th{background:#1F3864;color:#fff;text-align:left;padding:6px;font-weight:600}
+#q{width:100%;border:0;border-radius:12px;padding:12px 42px 12px 14px;font-size:16.5px;background:#fff;color:#111;outline:none}
+#clr{position:absolute;right:6px;top:6px;border:0;background:none;font-size:24px;color:#777;width:34px;height:34px;display:none;cursor:pointer}
+main{max-width:820px;margin:0 auto;padding:14px 14px 0}
+h2.pg{margin:4px 0 6px;color:var(--pri);font-size:1.28em;line-height:1.3}
+.lead{color:var(--mut);font-size:.92em;margin:0 0 14px}
+/* home tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{display:flex;flex-direction:column;gap:6px;background:var(--card);border-radius:16px;padding:16px 14px;text-decoration:none;color:var(--tx);box-shadow:0 1px 3px rgba(20,30,50,.08);min-height:118px}
+.tile .ic{font-size:28px;line-height:1}
+.tile b{font-size:1em;line-height:1.25;color:var(--pri)}
+.tile span.c{font-size:.78em;color:var(--mut);margin-top:auto}
+.tile.wide{grid-column:1/-1;flex-direction:row;align-items:center;min-height:0}
+.tile.wide b{flex:1}
+@media (min-width:640px){.tiles{grid-template-columns:1fr 1fr 1fr}}
+/* lists */
+.list{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(20,30,50,.07)}
+.li{display:flex;align-items:center;gap:12px;padding:14px 14px;text-decoration:none;color:var(--tx);border-bottom:1px solid var(--line)}
+.li:last-child{border-bottom:0}
+.li .tx{flex:1;min-width:0}
+.li .tx b{display:block;font-weight:600;line-height:1.3}
+.li .tx small{display:block;color:var(--mut);font-size:.8em;line-height:1.35;margin-top:3px}
+.li .ch{color:var(--mut);font-size:22px;flex:none}
+.li:active{background:rgba(47,84,150,.07)}
+.sec{font-size:.8em;font-weight:700;color:var(--mut);letter-spacing:.03em;margin:20px 4px 8px;text-transform:uppercase}
+/* provisions */
+.prov{background:var(--card);border-radius:14px;padding:14px 14px 12px;margin:0 0 14px;box-shadow:0 1px 3px rgba(20,30,50,.07)}
+.ref{font-size:.8em;font-weight:700;color:var(--pri2);letter-spacing:.01em;line-height:1.35}
+.ptitle{font-weight:600;margin:2px 0 10px;line-height:1.35}
+.badge{display:inline-block;font-size:.72em;font-weight:700;border-radius:20px;padding:1px 8px;margin-left:4px;vertical-align:1px;color:#fff;white-space:nowrap}
+.b-i{background:var(--i)}.b-m{background:var(--m)}.b-n{background:var(--n)}.b-d{background:var(--d)}.b-w{background:var(--w)}.b-x{background:var(--x)}
+.law{background:var(--lawbg);border-left:3px solid var(--lawbd);padding:8px 12px;font-family:"Noto Serif",Georgia,"Times New Roman",serif;font-size:1em;line-height:1.62}
+.law p{margin:0 0 8px}.law p:last-child{margin:0}
+.law.s-m{border-left-color:var(--m)}.law.s-n{border-left-color:var(--n)}.law.s-w{border-left-color:var(--w)}
+.law.s-d{border-left-color:var(--d);color:var(--mut);text-decoration:line-through;text-decoration-thickness:1px}
+.law.s-x{border-left-color:var(--x);color:var(--mut);font-style:italic}
+.law p.dim{color:var(--mut)}
+.mod{display:flex;gap:6px;align-items:baseline;font-size:.78em;color:var(--mut);margin:5px 0 0 2px;line-height:1.4}
+.mod .dot{width:8px;height:8px;border-radius:50%;flex:none;position:relative;top:-1px}
+.s-i .dot,.dot.s-i{background:var(--i)}.dot.s-m{background:var(--m)}.dot.s-n{background:var(--n)}.dot.s-d{background:var(--d)}.dot.s-w{background:var(--w)}.dot.s-x{background:var(--x)}
+.mod b{color:var(--tx);font-weight:600}
+.it{margin:0 0 14px}.it:last-child{margin-bottom:4px}
+.expl{background:var(--expl);border-radius:10px;padding:10px 12px;margin:0 0 12px;font-size:.9em;line-height:1.5}
+.expl .lb{display:block;font-size:.78em;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.03em;margin-bottom:2px}
+.expl ul{margin:4px 0;padding-left:18px}.expl li{margin-bottom:5px}.expl p{margin:4px 0}
+.links{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:.84em}
+.links a{text-decoration:none;font-weight:600}
+.tw{overflow-x:auto;margin:4px 0;-webkit-overflow-scrolling:touch}
+.tcap{font-weight:700;font-size:.88em;margin:2px 0 4px;color:var(--pri)}
+table{border-collapse:collapse;font-size:.8em;min-width:100%;font-family:Roboto,Arial,sans-serif}
+th{background:#1F3864;color:#fff;text-align:left;padding:7px 6px;font-weight:600}
 @media (prefers-color-scheme:dark){th{background:#2a3c5e}}
-td{border-bottom:1px solid var(--bd);padding:5px 6px;vertical-align:top}td.lb{font-weight:700;background:rgba(47,84,150,.08);width:30%}
+td{border-bottom:1px solid var(--line);padding:6px;vertical-align:top}td.lb{font-weight:700;width:30%}
 mark{background:var(--hl);color:inherit;border-radius:2px;padding:0 1px}
 .empty{text-align:center;color:var(--mut);padding:30px 10px}
-.back{display:inline-block;margin:0 0 8px;color:var(--pri2);text-decoration:none;font-weight:600}
-.nav{display:flex;gap:8px;margin:14px 0 4px}.nav a{flex:1;text-align:center;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px;color:var(--pri2);text-decoration:none;font-weight:600;font-size:.9em}
-.leg{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--mut);margin:6px 2px 4px}
-.leg span{display:flex;align-items:center;gap:5px}
-.btn{display:inline-block;border:1px solid var(--pri2);color:var(--pri2);background:transparent;border-radius:8px;padding:6px 12px;font-size:.88em;font-weight:600;text-decoration:none;cursor:pointer;margin:4px 6px 0 0}
+.meta{color:var(--mut);font-size:.84em;margin:2px 4px 10px}
+.nav{display:flex;gap:10px;margin:6px 0 4px}.nav a{flex:1;text-align:center;background:var(--card);border-radius:12px;padding:12px 8px;text-decoration:none;font-weight:600;font-size:.88em;box-shadow:0 1px 3px rgba(20,30,50,.07)}
+.leg{display:flex;flex-wrap:wrap;gap:6px 8px;margin:6px 0}
+.btn{display:inline-block;border:1.5px solid var(--pri2);color:var(--pri2);background:transparent;border-radius:10px;padding:8px 14px;font-size:.88em;font-weight:700;text-decoration:none;margin:8px 8px 0 0}
 .btn.pri{background:var(--pri2);color:#fff}
-@media (prefers-color-scheme:dark){.btn.pri{color:#0f141c}}
-.res .lt p.dim{color:var(--mut)}
-.more{font-size:12.5px;color:var(--pri2);text-decoration:none;font-weight:600}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin:24px 0 10px;line-height:1.5}
-#fsz{display:flex;gap:4px}
-.toc{columns:1}
+@media (prefers-color-scheme:dark){.btn.pri{color:#0e131b}}
+.foot{color:var(--mut);font-size:.75em;text-align:center;margin:22px 0 6px;line-height:1.5}
+.foot a{color:var(--mut)}
+.gcard h3{font-size:1em;margin:0 0 6px;color:var(--pri)}
 </style>
 </head>
 <body>
 <header>
- <div class="top"><h1 id="home">ΥΕΦ – Νομοθεσία σε ισχύ<small>Εξωτερική Φρούρηση · Σωφρονιστικό σύστημα</small></h1>
- <div id="fsz"><button class="ib" id="fm" aria-label="Μικρότερα γράμματα">A−</button><button class="ib" id="fp" aria-label="Μεγαλύτερα γράμματα">A+</button></div></div>
- <div class="sw"><input id="q" type="text" inputmode="search" enterkeyhint="search" placeholder="Αναζήτηση: π.χ. ρεπό, απόσπαση, Υπαρχιφύλακας…" autocomplete="off" autocorrect="off" spellcheck="false"><button id="clr" aria-label="Καθαρισμός">×</button></div>
- <div class="chips" id="chips"></div>
+ <div class="top"><button id="back" aria-label="Πίσω">‹</button><h1 id="home">ΥΕΦ – Νομοθεσία σε ισχύ<small>Εξωτερική Φρούρηση · Σωφρονιστικό σύστημα</small></h1>
+ <button class="ib" id="fm" aria-label="Μικρότερα γράμματα">A−</button><button class="ib" id="fp" aria-label="Μεγαλύτερα γράμματα">A+</button></div>
+ <div class="sw"><input id="q" type="text" inputmode="search" enterkeyhint="search" placeholder="Αναζήτηση: λέξη, θέμα, νόμος ή άρθρο" autocomplete="off" autocorrect="off" spellcheck="false"><button id="clr" aria-label="Καθαρισμός">×</button></div>
 </header>
 <main id="m"></main>
 <script src="data.js"></script>
+<script src="topics.js"></script>
 <script>
 'use strict';
-const D=window.LAWDATA;
+const D=window.LAWDATA,T=window.TOPICS;
 const STN={i:'Ισχύει',m:'Τροποποιήθηκε',n:'Νέο',d:'Καταργήθηκε',w:'Προσοχή',x:'Δεν αφορά ΥΕΦ'};
-const CHIPS=[['n','Νέο'],['m','Τροποποιήθηκε'],['d','Καταργήθηκε'],['w','Προσοχή'],['i','Ισχύει']];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-// accent/case-insensitive normalisation that keeps string length (1 char -> 1 char)
 function nc(ch){const n=ch.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();let c=(n||ch)[0];if(c==='ς')c='σ';if(c==='’'||c==='΄'||c==="'"||c==='`')c="'";return c}
 function norm(s){let o='';for(const ch of String(s))o+=nc(ch);return o}
 let terms=[];
@@ -106,109 +116,157 @@ function hl(t){t=String(t);if(!terms.length)return esc(t);const chars=[...t];if(
  const n=norm(t);const mk=new Uint8Array(t.length);
  for(const w of terms){let i=0;while((i=n.indexOf(w,i))>-1){mk.fill(1,i,i+w.length);i+=w.length}}
  let o='',on=0;for(let i=0;i<t.length;i++){if(mk[i]&&!on){o+='<mark>';on=1}if(!mk[i]&&on){o+='</mark>';on=0}o+=esc(t[i])}if(on)o+='</mark>';return o}
-const GR={};D.groups.forEach(g=>GR[g.id]=g);
-const DOC={},ART={};
-D.docs.forEach(d=>{DOC[d.id]=d;d.arts.forEach(a=>{ART[a.id]={a,d}})});
-function artLabel(a){return /^\d|^Μέρος/.test(a.n)?(a.n.startsWith('Μέρος')?a.n:'Άρθρο '+a.n):a.n}
-function cmt(it){const c=(it.c||'').replace(/^ισχύει( – )?/,'');return `<div class="cm"><span class="dot s-${it.s}"></span><b>${STN[it.s]}</b>${c?' · '+hl(c):''}</div>`}
-function tbl(T){let o=T.cap?`<div class="tcap">${hl(T.cap)}</div>`:'';o+='<div class="tw"><table><tr>'+T.cols.map(c=>`<th>${hl(c)}</th>`).join('')+'</tr>';
- for(const r of T.rows)o+='<tr>'+r.map(c=>`<td>${hl(c)}</td>`).join('')+'</tr>';return o+'</table></div>'}
-function item(it,lines){let body;
- if(it.T)body=tbl(it.T);else body='<div class="lt">'+(lines||it.L).map(l=>typeof l==='string'?`<p>${hl(l)}</p>`:l.h).join('')+'</div>';
- return `<div class="it s-${it.s}-it">${body}${cmt(it)}</div>`}
-function itemText(it){return it.T?[it.T.cap||'',it.T.cols.join(' '),it.T.rows.map(r=>r.join(' ')).join(' ')].join(' '):it.L.join(' ')}
-// ---------- search index
-const IDX=[];
-D.docs.forEach(d=>d.arts.forEach(a=>{const head=norm([d.law,d.title,artLabel(a),a.t,a.note].join(' '));
- a.items.forEach((it,k)=>IDX.push({type:'it',d,a,it,k,txt:norm(itemText(it)+' '+(it.c||'')),head}))}));
-D.guide.forEach((g,gi)=>g.cards.forEach((c,ci)=>IDX.push({type:'g',g,gi,c,txt:norm(c.h+' '+JSON.stringify(c.b)),head:norm(g.t+' '+c.h)})));
-// ---------- guide blocks
+
+// ---------- labels derived from the existing data (no text is altered)
+const DOC={},ART={};D.docs.forEach(d=>{DOC[d.id]=d;d.arts.forEach(a=>{ART[a.id]={a,d}})});
+const LAWNAME={n2721:'ν. 2721/1999',pd215:'π.δ. 215/2006',n5246:'ν. 5246/2025',bill:'Νέο νομοσχέδιο',sk:'Σωφρονιστικός Κώδικας'};
+function lawOf(d,a){if(LAWNAME[d.id])return LAWNAME[d.id];const m=a.t.match(/^(ν\.δ?\.? ?[\d/]+|ν\. [\d/]+|Ποινικός Κώδικας|νσ\.)/);
+ if(m)return m[1]==='νσ.'?'Νέο νομοσχέδιο':m[1];return d.law}
+function titleOf(a){return a.t.replace(/^(ν\.δ?\.? ?[\d/]+|ν\. [\d/]+|Ποινικός Κώδικας|νσ\.)\s*–\s*/,'')}
+function artLbl(a){if(/^Μέρος/.test(a.n))return a.n+' (τίτλος)';if(/–/.test(a.n))return 'άρθρα '+a.n;return 'άρθρο '+a.n}
+function parLbl(it){if(it.T)return 'πίνακας';const f=it.L[0];let m;
+ if((m=f.match(/^(\d{1,2}[Α-Ω]?)\.(?!\d)/)))return 'παρ. '+m[1];if((m=f.match(/^([α-ω]{1,3})\)/)))return 'περ. '+m[1];return ''}
+function refLine(d,a,its){const ps=its?its.map(parLbl).filter(Boolean):[];
+ return [lawOf(d,a),artLbl(a)].concat(ps.length?[ps.join(', ')]:[]).join(' · ')}
+const PDFOF=d=>d.pdf?`<a href="pdf/${d.pdf}" target="_blank" rel="noopener">📄 PDF</a>`:'';
+
+// reverse map: which topics include an article
+const TOPICS_OF={};T.forEach(c=>c.topics.forEach(t=>t.r.forEach(r=>{if(r.a){(TOPICS_OF[r.a]=TOPICS_OF[r.a]||[]);if(!TOPICS_OF[r.a].some(x=>x.t===t))TOPICS_OF[r.a].push({c,t})}})));
+const TOPIC={};T.forEach(c=>c.topics.forEach(t=>TOPIC[c.id+'/'+t.id]={c,t}));
+
+// ---------- rendering of official text
+function tbl(Tb){let o=Tb.cap?`<div class="tcap">${hl(Tb.cap)}</div>`:'';o+='<div class="tw"><table><tr>'+Tb.cols.map(c=>`<th>${hl(c)}</th>`).join('')+'</tr>';
+ for(const r of Tb.rows)o+='<tr>'+r.map(c=>`<td>${hl(c)}</td>`).join('')+'</tr>';return o+'</table></div>'}
+function modLine(it){const c=(it.c||'').replace(/^ισχύει( – )?/,'');return `<div class="mod"><span class="dot s-${it.s}"></span><span><b>${STN[it.s]}</b>${c?' · '+hl(c):''}</span></div>`}
+function lawBlock(it,lines){if(it.T)return tbl(it.T);return `<div class="law s-${it.s}">`+(lines||it.L).map(l=>typeof l==='string'?`<p>${hl(l)}</p>`:l.h).join('')+'</div>'}
+function itemHtml(it,lines){return `<div class="it">${lawBlock(it,lines)}${modLine(it)}</div>`}
+function explBox(label,html){return `<div class="expl"><span class="lb">${label}</span>${html}</div>`}
+function provCard(d,a,idxs,opts={}){
+ const its=idxs?idxs.map(i=>a.items[i]):a.items;
+ const st=its.length===1?its[0].s:a.s;
+ let o=`<div class="prov"><div class="ref">${esc(refLine(d,a,idxs?its:null))}${idxs?'':' · ολόκληρο'}<span class="badge b-${st}">${STN[st]}</span></div><div class="ptitle">${hl(titleOf(a))}</div>`;
+ if(a.note)o+=explBox('Σημείωση',hl(a.note));
+ o+=its.map(it=>itemHtml(it,opts.lines&&opts.lines.get(it))).join('');
+ o+=`<div class="links">`+(idxs||opts.search?`<a href="#a/${a.id}">Όλο το άρθρο ›</a>`:'')+`<a href="#d/${d.id}">${esc(lawOf(d,a)==='Νέο νομοσχέδιο'?'Δομή νομοσχεδίου':'Δομή: '+d.law.replace(/ \(.*$/,''))}</a>${PDFOF(d)}</div></div>`;
+ return o}
+// ---------- explanatory guide blocks (not law)
 function blk(b){switch(b.t){
- case'p':return`<p class="t">${b.bold?'<b>':''}${hl(b.text)}${b.bold?'</b>':''}</p>`;
- case'law':return'<div class="lt">'+b.paras.map(p=>`<p>${hl(p)}</p>`).join('')+'</div>';
- case'desc':return`<p class="t" style="color:var(--mut);font-style:italic">${hl(b.text)}</p>`;
- case'note':return`<div class="note n-${b.kind||'info'}"><b>${hl(b.label)}</b>${hl(b.text)}</div>`;
+ case'p':return`<p>${b.bold?'<b>':''}${hl(b.text)}${b.bold?'</b>':''}</p>`;
+ case'law':return'<div class="law">'+b.paras.map(p=>`<p>${hl(p)}</p>`).join('')+'</div>';
+ case'desc':return`<p><i>${hl(b.text)}</i></p>`;
+ case'note':return`<p><b>${hl(b.label)}:</b> ${hl(b.text)}</p>`;
  case'bullets':return'<ul>'+b.items.map(i=>`<li>${hl(i)}</li>`).join('')+'</ul>';
  case'table':{const hh=b.cols.some(c=>c);let o='<div class="tw"><table>';if(hh)o+='<tr>'+b.cols.map(c=>`<th>${hl(c)}</th>`).join('')+'</tr>';
   for(const r of b.rows)o+='<tr>'+r.map((c,i)=>`<td${!hh&&i===0?' class="lb"':''}>${hl(c)}</td>`).join('')+'</tr>';return o+'</table></div>'}
  default:return''}}
-function gcard(c,crumb){return `<div class="card">${crumb?`<div class="crumb">${crumb}</div>`:''}${c.h?`<h3>${hl(c.h)}</h3>`:''}${c.b.map(blk).join('')}</div>`}
+function guideCard(c){return explBox('Επεξήγηση – όχι νομικό κείμενο',(c.h?`<p><b>${hl(c.h)}</b></p>`:'')+c.b.map(blk).join(''))}
+
 // ---------- views
-const m=document.getElementById('m'),q=document.getElementById('q'),clr=document.getElementById('clr'),chipsEl=document.getElementById('chips');
-let filt=null;
-chipsEl.innerHTML=CHIPS.map(([k,t])=>`<button class="chip" data-s="${k}"><span class="dot s-${k}"></span> ${t}</button>`).join('');
-chipsEl.onclick=e=>{const b=e.target.closest('.chip');if(!b)return;filt=filt===b.dataset.s?null:b.dataset.s;[...chipsEl.children].forEach(x=>x.classList.toggle('on',x.dataset.s===filt));render()};
-const legend=()=>'<div class="leg">'+Object.entries(STN).map(([k,v])=>`<span><span class="dot s-${k}"></span>${v}</span>`).join('')+'</div>';
+const m=document.getElementById('m'),q=document.getElementById('q'),clr=document.getElementById('clr'),back=document.getElementById('back');
+function countTopicRefs(t){return t.r.length}
 function home(){
- let o=`<div class="meta">Το κείμενο όπως ισχύει τελικά – με όλες τις αλλαγές ήδη ενσωματωμένες. Κάτω από κάθε παράγραφο ένα μικρό σχόλιο λέει από πού προέρχεται.</div>${legend()}`;
- for(const g of D.groups){const ds=D.docs.filter(d=>d.grp===g.id);if(!ds.length)continue;
-  o+=`<div class="gh">${g.ic} ${esc(g.t)}</div>`;
-  o+=ds.map(d=>`<a class="row" href="#d/${d.id}"><b>${esc(d.law)}<small>${esc(d.title)}</small></b><span class="go">›</span></a>`).join('')}
- o+=`<div class="gh">📘 Οδηγός σε απλά λόγια</div>`+D.guide.map((g,i)=>`<a class="row" href="#g/${i}"><b>${esc(g.t)}</b><span class="go">›</span></a>`).join('');
- o+=`<div class="gh">📄 Αρχεία PDF</div><a class="row" href="#pdf"><b>Κατέβασμα επίσημων κειμένων (ΦΕΚ, νομοσχέδιο)<small>${D.pdfs.length} αρχεία</small></b><span class="go">›</span></a>`;
- o+=`<div class="gh">ℹ️ Πληροφορίες</div><a class="row" href="#about"><b>Πώς διαβάζεται – συντομογραφίες – εγκατάσταση</b><span class="go">›</span></a>`;
- o+=`<div class="foot">Ενημέρωση δεδομένων: ${esc(D.built)} · Δεν αντικαθιστά το ΦΕΚ</div>`;
+ let o='<div class="tiles">'+T.map(c=>`<a class="tile" href="#c/${c.id}"><span class="ic">${c.ic}</span><b>${esc(c.t)}</b><span class="c">${c.topics.length} θέματα</span></a>`).join('')+
+  `<a class="tile" href="#laws"><span class="ic">📚</span><b>Όλοι οι νόμοι</b><span class="c">με την αρχική τους δομή</span></a>`+
+  `<a class="tile" href="#pdf"><span class="ic">📄</span><b>Επίσημα αρχεία PDF</b><span class="c">${D.pdfs.length} αρχεία</span></a>`+
+  `<a class="tile wide" href="#about"><span class="ic" style="font-size:22px">ℹ️</span><b>Πώς διαβάζεται η εφαρμογή</b><span class="ch" style="color:var(--mut);font-size:22px">›</span></a></div>`;
+ o+=`<div class="foot">Ενημέρωση δεδομένων: ${esc(D.built)} · Δεν αντικαθιστά το ΦΕΚ</div>`;m.innerHTML=o}
+function refSummary(t){const s=[];t.r.forEach(r=>{if(r.a){const {a,d}=ART[r.a];const x=lawOf(d,a)+' '+artLbl(a).replace('άρθρο','άρθ.').replace('άρθρα','άρθ.');if(!s.includes(x))s.push(x)}else if(r.g!=null){if(!s.includes('επεξήγηση'))s.push('επεξήγηση')}else if(r.dyn)s.push('συγκεντρωτικός κατάλογος')});return s.join(' · ')}
+function catView(c){m.innerHTML=`<h2 class="pg">${c.ic} ${esc(c.t)}</h2><p class="lead">${esc(c.d)}</p><div class="list">`+
+ c.topics.map(t=>`<a class="li" href="#t/${c.id}/${t.id}"><span class="tx"><b>${esc(t.t)}</b><small>${esc(refSummary(t))}</small></span><span class="ch">›</span></a>`).join('')+'</div>'}
+function dynList(s){const out=[];D.docs.forEach(d=>d.arts.forEach(a=>a.items.forEach((it,i)=>{if(it.s===s)out.push({d,a,i})})));return out}
+function topicView(c,t){let o=`<div class="meta">${c.ic} ${esc(c.t)}</div><h2 class="pg">${esc(t.t)}</h2>`;
+ const n=t.r.filter(r=>r.a).length;if(n>1)o+=`<p class="lead">Σχετικές διατάξεις: ${n}</p>`;
+ for(const r of t.r){
+  if(r.a){const {a,d}=ART[r.a];o+=provCard(d,a,r.p||null)}
+  else if(r.g!=null){const g=D.guide[r.g];o+=`<div class="sec">${esc(g.t)}</div>`+g.cards.map(guideCard).join('')}
+  else if(r.dyn){const L=dynList(r.dyn);o+=`<div class="sec">${STN[r.dyn]} – ${L.length} διατάξεις σε όλους τους νόμους</div>`+L.map(({d,a,i})=>provCard(d,a,[i])).join('')}}
  m.innerHTML=o}
-function docView(d){
- let o=`<a class="back" href="#">‹ Αρχική</a><h2 class="pg">${esc(d.law)}</h2><p class="sub">${esc(d.title)}</p>`;
- if(d.intro)o+=`<div class="anote">${esc(d.intro)}</div>`;
- o+=d.arts.map(a=>`<a class="row" href="#a/${a.id}"><span class="an">${esc(a.n.startsWith('Μέρος')?'Μ.Γ΄':a.n)}</span><b>${esc(a.t)}</b><span class="dot s-${a.s}" title="${STN[a.s]}"></span></a>`).join('');
- if(d.pdf)o+=`<p style="margin-top:14px"><a class="btn" href="pdf/${d.pdf}" target="_blank" rel="noopener">📄 Άνοιγμα PDF</a></p>`;
+function lawsView(){m.innerHTML=`<h2 class="pg">📚 Όλοι οι νόμοι</h2><p class="lead">Κάθε νόμος με την αρχική του σειρά άρθρων.</p><div class="list">`+
+ D.docs.map(d=>`<a class="li" href="#d/${d.id}"><span class="tx"><b>${esc(d.law)}</b><small>${esc(d.title)}</small></span><span class="ch">›</span></a>`).join('')+'</div>'}
+function docView(d){let o=`<h2 class="pg">${esc(d.law)}</h2><p class="lead">${esc(d.title)}</p>`;
+ if(d.intro)o+=explBox('Σημείωση',esc(d.intro));
+ o+='<div class="list">'+d.arts.map(a=>`<a class="li" href="#a/${a.id}"><span class="tx"><b>${esc(titleOf(a))}</b><small>${esc(lawOf(d,a)+' · '+artLbl(a))} · <span class="dot s-${a.s}" style="display:inline-block;width:7px;height:7px;border-radius:50%"></span> ${STN[a.s]}</small></span><span class="ch">›</span></a>`).join('')+'</div>';
+ if(d.pdf)o+=`<a class="btn" href="pdf/${d.pdf}" target="_blank" rel="noopener">📄 Άνοιγμα PDF</a>`;
  m.innerHTML=o}
-function artView(x){const {a,d}=x;const i=d.arts.indexOf(a);
- let o=`<div class="crumb"><a href="#">Αρχική</a> › <a href="#d/${d.id}">${esc(d.law)}</a></div><h2 class="pg">${esc(artLabel(a))} – ${hl(a.t)}</h2>`;
- if(a.note)o+=`<div class="anote">${hl(a.note)}</div>`;
- o+='<div class="card">'+a.items.map(it=>item(it)).join('')+'</div>';
- o+='<div class="nav">'+(i>0?`<a href="#a/${d.arts[i-1].id}">‹ ${esc(artLabel(d.arts[i-1]))}</a>`:'<span style="flex:1"></span>')+
-   (i<d.arts.length-1?`<a href="#a/${d.arts[i+1].id}">${esc(artLabel(d.arts[i+1]))} ›</a>`:'<span style="flex:1"></span>')+'</div>';
+function artView({a,d}){const i=d.arts.indexOf(a);
+ let o=`<div class="meta"><a href="#d/${d.id}" style="text-decoration:none">${esc(d.law)}</a></div>`+provCard(d,a,null);
+ const tp=TOPICS_OF[a.id]||[];
+ if(tp.length)o+=`<div class="sec">Θέματα που το περιλαμβάνουν</div><div class="list">`+tp.map(({c,t})=>`<a class="li" href="#t/${c.id}/${t.id}"><span class="tx"><b>${esc(t.t)}</b><small>${esc(c.t)}</small></span><span class="ch">›</span></a>`).join('')+'</div>';
+ o+='<div class="nav" style="margin-top:14px">'+(i>0?`<a href="#a/${d.arts[i-1].id}">‹ ${esc(artLbl(d.arts[i-1]))}</a>`:'<span style="flex:1"></span>')+
+   (i<d.arts.length-1?`<a href="#a/${d.arts[i+1].id}">${esc(artLbl(d.arts[i+1]))} ›</a>`:'<span style="flex:1"></span>')+'</div>';
  m.innerHTML=o}
-function guideView(i){const g=D.guide[i];m.innerHTML=`<a class="back" href="#">‹ Αρχική</a><h2 class="pg">${esc(g.t)}</h2><p class="sub">Επεξήγηση – όχι αυτούσιο νομικό κείμενο.</p>`+g.cards.map(c=>gcard(c)).join('')}
-function pdfView(){m.innerHTML=`<a class="back" href="#">‹ Αρχική</a><h2 class="pg">Αρχεία PDF</h2><p class="sub">Τα επίσημα κείμενα από τα οποία βγήκε η εφαρμογή. Πάτα «Λήψη» για να αποθηκευτεί στο κινητό.</p>`+
- D.pdfs.map(p=>`<div class="card"><h3>📄 ${esc(p.t)}</h3><div style="color:var(--mut);font-size:.88em">${esc(p.d)}</div><a class="btn" href="pdf/${p.f}" target="_blank" rel="noopener">Άνοιγμα</a><a class="btn pri" href="pdf/${p.f}" download>Λήψη</a></div>`).join('')}
-function aboutView(){m.innerHTML=`<a class="back" href="#">‹ Αρχική</a><h2 class="pg">Πώς διαβάζεται</h2>
-<div class="card"><p class="t">Κάθε άρθρο εμφανίζεται <b>όπως ισχύει τελικά</b>. Οι αλλαγές είναι ήδη μέσα στο κείμενο – δεν χρειάζεται να ψάχνεις τον τροποποιητικό νόμο. Κάτω από κάθε παράγραφο υπάρχει μικρό σχόλιο:</p>${legend()}
+function pdfView(){m.innerHTML=`<h2 class="pg">📄 Επίσημα αρχεία PDF</h2><p class="lead">Τα κείμενα από τα οποία προέρχεται η εφαρμογή. «Λήψη» για αποθήκευση στο κινητό.</p>`+
+ D.pdfs.map(p=>`<div class="prov"><div class="ptitle" style="margin:0">${esc(p.t)}</div><div style="color:var(--mut);font-size:.88em">${esc(p.d)}</div><a class="btn" href="pdf/${p.f}" target="_blank" rel="noopener">Άνοιγμα</a><a class="btn pri" href="pdf/${p.f}" download>Λήψη</a></div>`).join('')}
+function aboutView(){const leg='<div class="leg">'+Object.entries(STN).map(([k,v])=>`<span class="badge b-${k}" style="margin:0">${v}</span>`).join('')+'</div>';
+ m.innerHTML=`<h2 class="pg">Πώς διαβάζεται</h2>
+<div class="prov"><p style="margin-top:0">Διάλεξε <b>κατηγορία</b> και μετά <b>θέμα</b>. Θα δεις όλες τις σχετικές διατάξεις, με το <b>ακριβές άρθρο και την παράγραφο</b> πάνω από κάθε κείμενο.</p>
+<div class="law"><p>Το νομικό κείμενο εμφανίζεται έτσι – όπως ισχύει τελικά, με τις αλλαγές ήδη ενσωματωμένες.</p></div>
+<div class="mod"><span class="dot s-m"></span><span><b>Τροποποιήθηκε</b> · από κάτω, με μικρά γράμματα, από πού προέρχεται η αλλαγή.</span></div>
+<p>Χρώμα ένδειξης:</p>${leg}
 <ul><li><b>Ισχύει</b> – δεν άλλαξε.</li><li><b>Τροποποιήθηκε</b> – άλλαξε· το σχόλιο λέει από ποιο άρθρο.</li><li><b>Νέο</b> – προστέθηκε τώρα.</li><li><b>Καταργήθηκε</b> – δεν ισχύει πια (διαγραμμένο).</li><li><b>Προσοχή</b> – δεν καταργήθηκε ρητά, αλλά δεν εφαρμόζεται (ή όχι πλήρως) επειδή συγκρούεται με νεότερη διάταξη.</li><li><b>Δεν αφορά ΥΕΦ</b> – υπάρχει στον νόμο, αλλά δεν εφαρμόζεται στην Εξωτερική Φρούρηση.</li></ul></div>
-<div class="card"><h3>Συντομογραφίες</h3><ul><li><b>νσ.</b> – το νέο νομοσχέδιο του Υπουργείου Προστασίας του Πολίτη (63 άρθρα) για την ένταξη της ΥΕΦ στα Σώματα Ασφαλείας.</li><li><b>ΥΕΦ / ΕΦ</b> – Υπηρεσία Εξωτερικής Φρούρησης.</li><li><b>ΣΚ</b> – Σωφρονιστικός Κώδικας (ν. 2776/1999) ή Σωφρονιστικό Κατάστημα.</li><li><b>ΙΑΑ</b> – Ιδρύματα Αγωγής Ανηλίκων · <b>ΓΓΑΠ</b> – Γενική Γραμματεία Αντεγκληματικής Πολιτικής · <b>ΣΕΕΣΚ</b> – Σώμα Επιθεώρησης και Ελέγχου Σωφρονιστικών Καταστημάτων.</li><li><b>ΑΥ</b> – Αξιωματικός Υπηρεσίας · <b>Μ.Κ.</b> – μισθολογικό κλιμάκιο · <b>ΥΑ / ΚΥΑ</b> – (κοινή) υπουργική απόφαση.</li></ul></div>
-<div class="card"><h3>Αναζήτηση</h3><p class="t">Γράψε μία ή περισσότερες λέξεις. Τόνοι και κεφαλαία δεν παίζουν ρόλο. Αρκεί και κομμάτι λέξης (π.χ. «μεταθ» βρίσκει μετάθεση, μεταθέσεις). Τα κουμπιά κάτω από την αναζήτηση φιλτράρουν ανά κατάσταση (π.χ. μόνο «Νέο»).</p></div>
-<div class="card"><h3>Εγκατάσταση στο κινητό</h3><ul><li><b>Android (Chrome):</b> μενού ⋮ → «Εγκατάσταση εφαρμογής» ή «Προσθήκη στην αρχική οθόνη».</li><li><b>iPhone (Safari):</b> κουμπί Κοινοποίηση → «Προσθήκη στην οθόνη Αφετηρίας».</li></ul><p class="t">Μετά την πρώτη φόρτωση δουλεύει και χωρίς ίντερνετ. Τα PDF αποθηκεύονται για offline όταν τα ανοίξεις μία φορά.</p></div>
-<div class="note n-warn"><b>Σημαντικό</b>Η εφαρμογή βασίζεται στο κείμενο του νομοσχεδίου (63 άρθρα) και στα ΦΕΚ που περιλαμβάνονται στα PDF. Αν το τελικό ΦΕΚ του νόμου διαφέρει, υπερισχύει το ΦΕΚ. Ο πλήρης κωδικοποιημένος Σωφρονιστικός Κώδικας δεν περιλαμβάνεται – μόνο τα άρθρα του που αλλάζουν. Δεν αποτελεί νομική συμβουλή.</div>`}
-function search(){const cnt=(t,w)=>{let n=0,i=0;while((i=t.indexOf(w,i))>-1){n++;i+=w.length}return n};
- const okS=e=>!filt||(e.type==='it'&&e.it.s===filt);
+${explBox('Έτσι εμφανίζονται οι επεξηγήσεις','Τα γκρι πλαίσια με την ένδειξη «Επεξήγηση» ή «Σημείωση» δεν είναι νομικό κείμενο.')}
+<div class="prov"><b>Συντομογραφίες</b><ul><li><b>νσ.</b> – το νέο νομοσχέδιο του Υπουργείου Προστασίας του Πολίτη (63 άρθρα).</li><li><b>ΥΕΦ / ΕΦ</b> – Υπηρεσία Εξωτερικής Φρούρησης.</li><li><b>ΣΚ</b> – Σωφρονιστικός Κώδικας (ν. 2776/1999) ή Σωφρονιστικό Κατάστημα.</li><li><b>ΙΑΑ</b> – Ιδρύματα Αγωγής Ανηλίκων · <b>ΓΓΑΠ</b> – Γενική Γραμματεία Αντεγκληματικής Πολιτικής · <b>ΣΕΕΣΚ</b> – Σώμα Επιθεώρησης και Ελέγχου Σωφρονιστικών Καταστημάτων.</li><li><b>ΑΥ</b> – Αξιωματικός Υπηρεσίας · <b>Μ.Κ.</b> – μισθολογικό κλιμάκιο · <b>ΥΑ / ΚΥΑ</b> – (κοινή) υπουργική απόφαση.</li></ul></div>
+<div class="prov"><b>Αναζήτηση</b><p>Γράψε λέξη, θέμα, νόμο ή άρθρο, π.χ. «ρεπό», «μετάθεση», «2721 49», «άρθρο 16». Τόνοι και κεφαλαία δεν παίζουν ρόλο· αρκεί και κομμάτι λέξης.</p></div>
+<div class="prov"><b>Εγκατάσταση στο κινητό</b><ul><li><b>Android (Chrome):</b> μενού ⋮ → «Εγκατάσταση εφαρμογής» ή «Προσθήκη στην αρχική οθόνη».</li><li><b>iPhone (Safari):</b> Κοινοποίηση → «Προσθήκη στην οθόνη Αφετηρίας».</li></ul><p>Μετά την πρώτη φόρτωση δουλεύει και χωρίς ίντερνετ. Κάθε PDF μένει αποθηκευμένο αφού το ανοίξεις μία φορά.</p></div>
+${explBox('Σημαντικό','Η εφαρμογή βασίζεται στο κείμενο του νομοσχεδίου (63 άρθρα) και στα ΦΕΚ του φακέλου PDF. Αν το τελικό ΦΕΚ διαφέρει, υπερισχύει το ΦΕΚ. Ο πλήρης κωδικοποιημένος Σωφρονιστικός Κώδικας δεν περιλαμβάνεται – μόνο τα άρθρα του που αλλάζουν. Δεν αποτελεί νομική συμβουλή.')}`}
+function guideView(i){const g=D.guide[i];m.innerHTML=`<h2 class="pg">${esc(g.t)}</h2>`+g.cards.map(guideCard).join('')}
+
+// ---------- search
+const IDX=[];
+D.docs.forEach(d=>d.arts.forEach(a=>{const L=lawOf(d,a);const nums=L.match(/[\d/]+/g)||[];
+ const head=norm([L,d.law,nums.join(' '),nums.map(x=>x.split('/')[0]).join(' '),'αρθρο '+a.n,'αρθ '+a.n,'αρθ. '+a.n,a.n,titleOf(a),(TOPICS_OF[a.id]||[]).map(x=>x.t.t).join(' ')].join(' '));
+ a.items.forEach((it,k)=>{const txt=it.T?[it.T.cap||'',it.T.cols.join(' '),it.T.rows.map(r=>r.join(' ')).join(' ')].join(' '):it.L.join(' ');
+  IDX.push({type:'it',d,a,it,k,txt:norm(txt+' '+(it.c||'')+' '+parLbl(it)),head})})}));
+D.guide.forEach((g,gi)=>g.cards.forEach(c=>IDX.push({type:'g',g,gi,c,txt:norm(c.h+' '+JSON.stringify(c.b)),head:norm(g.t+' '+c.h)})));
+const TIDX=[];T.forEach(c=>c.topics.forEach(t=>TIDX.push({c,t,txt:norm(t.t+' '+t.k+' '+c.t+' '+refSummary(t))})));
+function search(){const cnt=(s,w)=>{let n=0,i=0;while((i=s.indexOf(w,i))>-1){n++;i+=w.length}return n};
+ const tps=TIDX.filter(e=>terms.every(w=>e.txt.includes(w))).slice(0,8);
  const hit=(e,w)=>e.txt.includes(w)||e.head.includes(w);
- let res=IDX.filter(e=>okS(e)&&terms.every(w=>hit(e,w)));let any=false;
- if(!res.length&&terms.length>1){res=IDX.filter(e=>okS(e)&&terms.some(w=>hit(e,w)));any=true}
- const sc=e=>terms.reduce((s,w)=>s+cnt(e.txt,w)+(e.head.includes(w)?8:0),0)+(e.type==='it'&&e.it.s==='d'?-5:0);
+ let res=IDX.filter(e=>terms.every(w=>hit(e,w)));let any=false;
+ if(!res.length&&terms.length>1){res=IDX.filter(e=>terms.some(w=>hit(e,w)));any=true}
+ const sc=e=>terms.reduce((s,w)=>s+cnt(e.txt,w)+(e.head.includes(w)?10:0),0)+(e.type==='it'&&(e.it.s==='d'||e.it.s==='x')?-6:0)+(e.type==='g'?-3:0);
  res.sort((a,b)=>sc(b)-sc(a));
- let o=`<div class="meta">${res.length} αποτελέσματα${any?' (με οποιαδήποτε από τις λέξεις)':''}${filt?' · φίλτρο: '+STN[filt]:''}</div>`;
- if(!res.length){m.innerHTML=o+(terms.length?'<div class="empty">Δεν βρέθηκε κάτι. Δοκίμασε άλλη λέξη, λιγότερες λέξεις ή κομμάτι λέξης.</div>':'');return}
- o+=res.slice(0,100).map(e=>{
-  if(e.type==='g')return gcard(e.c,`<a href="#g/${e.gi}">📘 ${esc(e.g.t)}</a>`);
-  const {d,a,it}=e;let lines=null;
-  if(!it.T&&it.L.length>4&&terms.length){const keep=new Set();it.L.forEach((l,i)=>{const n=norm(l);if(terms.some(w=>n.includes(w))){keep.add(i)}});
-   if(keep.size&&keep.size<it.L.length){keep.add(0);lines=[];let last=-1;[...keep].sort((x,y)=>x-y).forEach(i=>{if(last>=0&&i>last+1)lines.push({h:'<p class="dim">…</p>'});lines.push(it.L[i]);last=i});if(last<it.L.length-1)lines.push({h:'<p class="dim">…</p>'})}}
-  return `<div class="card res"><div class="crumb"><a href="#d/${d.id}">${esc(d.law)}</a> › <a href="#a/${a.id}">${esc(artLabel(a))} – ${hl(a.t)}</a></div>${item(it,lines)}${lines?`<a class="more" href="#a/${a.id}">Όλο το άρθρο ›</a>`:''}</div>`}).join('');
- if(res.length>100)o+='<div class="meta">Εμφανίζονται τα 100 πρώτα – πρόσθεσε λέξη για πιο στοχευμένα αποτελέσματα.</div>';
+ let o='';
+ if(tps.length)o+=`<div class="sec" style="margin-top:2px">Θέματα</div><div class="list">`+tps.map(({c,t})=>`<a class="li" href="#t/${c.id}/${t.id}"><span class="tx"><b>${hl(t.t)}</b><small>${esc(c.t)}</small></span><span class="ch">›</span></a>`).join('')+'</div>';
+ o+=`<div class="sec">Διατάξεις – ${res.length}${any?' (με οποιαδήποτε λέξη)':''}</div>`;
+ if(!res.length&&!tps.length){m.innerHTML='<div class="empty">Δεν βρέθηκε κάτι. Δοκίμασε άλλη λέξη, λιγότερες λέξεις ή κομμάτι λέξης.</div>';return}
+ o+=res.slice(0,60).map(e=>{
+  if(e.type==='g')return `<div class="meta"><a href="#g/${e.gi}" style="text-decoration:none">${esc(e.g.t)}</a></div>`+guideCard(e.c);
+  const {d,a,it,k}=e;const lines=new Map();
+  if(!it.T&&it.L.length>4){const keep=new Set();it.L.forEach((l,i)=>{const n=norm(l);if(terms.some(w=>n.includes(w)))keep.add(i)});
+   if(keep.size&&keep.size<it.L.length){keep.add(0);const ls=[];let last=-1;[...keep].sort((x,y)=>x-y).forEach(i=>{if(last>=0&&i>last+1)ls.push({h:'<p class="dim">…</p>'});ls.push(it.L[i]);last=i});if(last<it.L.length-1)ls.push({h:'<p class="dim">…</p>'});lines.set(it,ls)}}
+  return provCard(d,a,[k],{lines,search:true})}).join('');
+ if(res.length>60)o+='<div class="meta">Εμφανίζονται οι 60 πιο σχετικές – πρόσθεσε λέξη για πιο στοχευμένα αποτελέσματα.</div>';
  m.innerHTML=o}
-function filterView(){ // status filter without words: list items with that status
- const res=IDX.filter(e=>e.type==='it'&&e.it.s===filt);
- m.innerHTML=`<div class="meta">${res.length} διατάξεις · ${STN[filt]}</div>`+res.map(({d,a,it})=>`<div class="card res"><div class="crumb"><a href="#d/${d.id}">${esc(d.law)}</a> › <a href="#a/${a.id}">${esc(artLabel(a))} – ${esc(a.t)}</a></div>${item(it)}</div>`).join('')}
-function render(){const v=q.value.trim();clr.style.display=v?'block':'none';terms=norm(v).split(/\s+/).filter(w=>w.length>0);
+
+// ---------- routing & back
+function parent(h){let x;
+ if((x=h.match(/^t\/([^/]+)\//)))return '#c/'+x[1];
+ if(/^a\//.test(h))return '#d/'+ART[h.slice(2)]?.d.id;
+ if(/^d\//.test(h))return '#laws';
+ return '#'}
+let depth=0;
+function render(){const v=q.value.trim();clr.style.display=v?'block':'none';terms=norm(v).split(/\s+/).filter(Boolean);
+ const h=decodeURIComponent(location.hash.slice(1));back.style.display=(h||terms.length)?'block':'none';document.body.classList.toggle('inner',!!(h||terms.length));
  if(terms.length){search();return}
- if(filt){filterView();return}
- const h=decodeURIComponent(location.hash.slice(1));let mm;
- if((mm=h.match(/^d\/(.+)$/))&&DOC[mm[1]])docView(DOC[mm[1]]);
- else if((mm=h.match(/^a\/(.+)$/))&&ART[mm[1]])artView(ART[mm[1]]);
- else if((mm=h.match(/^g\/(\d+)$/))&&D.guide[+mm[1]])guideView(+mm[1]);
+ let x;
+ if((x=h.match(/^c\/(.+)$/))&&T.find(c=>c.id===x[1]))catView(T.find(c=>c.id===x[1]));
+ else if((x=h.match(/^t\/(.+)$/))&&TOPIC[x[1]])topicView(TOPIC[x[1]].c,TOPIC[x[1]].t);
+ else if(h==='laws')lawsView();
+ else if((x=h.match(/^d\/(.+)$/))&&DOC[x[1]])docView(DOC[x[1]]);
+ else if((x=h.match(/^a\/(.+)$/))&&ART[x[1]])artView(ART[x[1]]);
+ else if((x=h.match(/^g\/(\d+)$/))&&D.guide[+x[1]])guideView(+x[1]);
  else if(h==='pdf')pdfView();else if(h==='about')aboutView();else home()}
+back.onclick=()=>{if(q.value){q.value='';render();return}if(depth>0)history.back();else location.hash=parent(decodeURIComponent(location.hash.slice(1)))};
 let tmr;q.addEventListener('input',()=>{clearTimeout(tmr);tmr=setTimeout(()=>{render();window.scrollTo(0,0)},160)});
 q.addEventListener('keydown',e=>{if(e.key==='Enter')q.blur()});
 clr.onclick=()=>{q.value='';render();q.focus()};
-m.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&(q.value||filt)){q.value='';filt=null;[...chipsEl.children].forEach(x=>x.classList.remove('on'));
- if(location.hash===a.getAttribute('href')){e.preventDefault();render();window.scrollTo(0,0)}}});
-document.getElementById('home').onclick=()=>{q.value='';filt=null;[...chipsEl.children].forEach(x=>x.classList.remove('on'));if(location.hash)location.hash='';else render()};
-window.addEventListener('hashchange',()=>{if(q.value||filt){q.value='';filt=null;[...chipsEl.children].forEach(x=>x.classList.remove('on'))}render();window.scrollTo(0,0)});
-let fs=16;try{fs=+localStorage.getItem('yef_fs')||16}catch(e){}
-function setFs(v){fs=Math.max(13,Math.min(24,v));document.documentElement.style.setProperty('--fs',fs+'px');try{localStorage.setItem('yef_fs',fs)}catch(e){}}
+m.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&q.value){q.value='';if(location.hash===a.getAttribute('href')){e.preventDefault();render();window.scrollTo(0,0)}}});
+document.getElementById('home').onclick=()=>{q.value='';if(location.hash&&location.hash!=='#')location.hash='';else render()};
+window.addEventListener('hashchange',()=>{depth++;render();window.scrollTo(0,0)});
+window.addEventListener('popstate',()=>{depth=Math.max(0,depth-2)});
+let fs=17;try{fs=+localStorage.getItem('yef_fs2')||17}catch(e){}
+function setFs(v){fs=Math.max(14,Math.min(24,v));document.documentElement.style.setProperty('--fs',fs+'px');try{localStorage.setItem('yef_fs2',fs)}catch(e){}}
 setFs(fs);document.getElementById('fm').onclick=()=>setFs(fs-1);document.getElementById('fp').onclick=()=>setFs(fs+1);
 render();
 if('serviceWorker' in navigator&&location.protocol!=='file:'){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
