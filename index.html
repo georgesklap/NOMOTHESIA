@@ -3,222 +3,342 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1F3864">
+<meta name="theme-color" content="#13274a">
+<meta name="color-scheme" content="dark">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="ΥΕΦ Νομοθεσία">
-<meta name="description" content="Ενοποιημένη νομοθεσία Υπηρεσίας Εξωτερικής Φρούρησης και σωφρονιστικού συστήματος – θεματική πλοήγηση, αναζήτηση, offline.">
+<meta name="apple-mobile-web-app-title" content="ΥΕΦΚΚ Νομοθεσία">
+<meta name="description" content="ΥΕΦΚΚ – Νομοθεσία σε ισχύ: ενοποιημένη νομοθεσία Υπηρεσίας Εξωτερικής Φρούρησης Καταστημάτων Κράτησης και σωφρονιστικού συστήματος.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<title>ΥΕΦ – Νομοθεσία σε ισχύ</title>
+<title>ΥΕΦΚΚ – Νομοθεσία σε ισχύ</title>
 <style>
-:root{--bg:#f2f4f8;--card:#fff;--tx:#18202b;--mut:#5b6474;--pri:#1F3864;--pri2:#2F5496;--line:#e1e6ee;--lawbg:#fbfcfe;--lawbd:#8EA9DB;--hl:#ffe36e;--expl:#eef2f8;
---i:#6f7883;--m:#C55A11;--n:#2E7D32;--d:#C00000;--w:#7030A0;--x:#9aa2ad;--fs:17px}
-@media (prefers-color-scheme:dark){:root{--bg:#0e131b;--card:#171f2b;--tx:#e7eaef;--mut:#9ba5b3;--pri:#9db9ee;--pri2:#a9c3f5;--line:#273142;--lawbg:#131a25;--lawbd:#4c6aa3;--hl:#7a6510;--expl:#1c2533;--i:#a0a9b4;--m:#f0955a;--n:#6cc070;--d:#ff6b6b;--w:#c79bf0;--x:#6b7480}}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--tx);font:var(--fs)/1.6 Roboto,"Noto Sans",-apple-system,"Segoe UI",Arial,sans-serif;padding-bottom:calc(env(safe-area-inset-bottom) + 24px)}
-a{color:var(--pri2)}
-header{position:sticky;top:0;z-index:5;background:#1F3864;color:#fff;padding:calc(env(safe-area-inset-top) + 8px) 10px 10px;box-shadow:0 2px 8px rgba(0,0,0,.22)}
-@media (prefers-color-scheme:dark){header{background:#15223a}}
-.top{display:flex;align-items:center;gap:6px;min-height:42px}
-#back{display:none;background:none;border:0;color:#fff;font-size:30px;line-height:1;width:42px;height:42px;margin-left:-4px;cursor:pointer;border-radius:50%}
-#back:active{background:rgba(255,255,255,.15)}
-.top h1{font-size:17px;margin:0;flex:1;line-height:1.25;cursor:pointer;font-weight:700}
-.top h1 small{display:block;font-weight:400;opacity:.78;font-size:12.5px}
-body.inner .top h1 small{display:none}
-.ib{background:rgba(255,255,255,.14);border:0;color:#fff;border-radius:10px;min-width:40px;height:40px;font-size:15px;font-weight:700;cursor:pointer}
-.sw{position:relative;margin-top:8px}
-#q{width:100%;border:0;border-radius:12px;padding:12px 42px 12px 14px;font-size:16.5px;background:#fff;color:#111;outline:none}
-#clr{position:absolute;right:6px;top:6px;border:0;background:none;font-size:24px;color:#777;width:34px;height:34px;display:none;cursor:pointer}
-main{max-width:820px;margin:0 auto;padding:14px 14px 0}
-h2.pg{margin:4px 0 6px;color:var(--pri);font-size:1.28em;line-height:1.3}
-.lead{color:var(--mut);font-size:.92em;margin:0 0 14px}
-/* home tiles */
-.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.tile{display:flex;flex-direction:column;gap:6px;background:var(--card);border-radius:16px;padding:16px 14px;text-decoration:none;color:var(--tx);box-shadow:0 1px 3px rgba(20,30,50,.08);min-height:118px}
-.tile .ic{font-size:28px;line-height:1}
-.tile b{font-size:1em;line-height:1.25;color:var(--pri)}
-.tile span.c{font-size:.78em;color:var(--mut);margin-top:auto}
-.tile.wide{grid-column:1/-1;flex-direction:row;align-items:center;min-height:0}
-.tile.wide b{flex:1}
+:root{
+ --bg:#0d131c;--sf:#151d29;--sf2:#1b2533;--sf3:#222e3f;--line:#26324380;
+ --tx:#e7ebf1;--tx2:#c9d1dc;--mut:#8e9aab;--acc:#8fb3f0;--navy:#13274a;--navy2:#1F3864;--navy3:#2a4d8a;
+ --i:#8b96a5;--m:#e2a35f;--n:#69c38a;--d:#ec7a7a;--w:#bb96ec;--x:#6d7785;--f:#6fb6dd;--hl:#6b5a12;
+ --fs:17px;--r:12px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 var(--fs)/1.55 "Noto Sans",Roboto,"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;padding-bottom:calc(env(safe-area-inset-bottom) + 28px)}
+a{color:var(--acc)}
+svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.2em}
+/* ---------- top bar */
+header{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;padding:calc(env(safe-area-inset-top) + 6px) 6px 6px;box-shadow:0 1px 0 rgba(255,255,255,.06),0 4px 14px rgba(0,0,0,.35)}
+.bar{display:flex;align-items:center;gap:2px;min-height:44px}
+.hb{display:flex;align-items:center;justify-content:center;background:none;border:0;color:#fff;min-width:44px;height:44px;border-radius:22px;font:700 15px/1 inherit;cursor:pointer;padding:0 6px}
+#fm,#fp{min-width:36px;padding:0 3px}
+.ttl .t3{display:none}
+body.inner .ttl{padding:0 4px;line-height:1.15}body.inner .ttl b{font-size:16px}body.inner .ttl .t2{display:none}
+body.inner .ttl small.t3{display:block;font-size:12.5px;opacity:.8}
+.hb:active{background:rgba(255,255,255,.14)}
+.hb svg.i{width:24px;height:24px}
+#back{display:none}
+.ttl{flex:1;min-width:0;padding:0 6px;cursor:pointer}
+.ttl b{display:block;font-size:16.5px;font-weight:700;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ttl small{display:block;font-size:12px;opacity:.72;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.inner .ttl small{display:none}
+#sbtn{display:none}body.inner #sbtn{display:flex}
+.sw{position:relative;margin:6px 4px 4px}
+body.inner .sw{display:none}body.inner.searching .sw{display:block}
+#q{width:100%;border:0;border-radius:12px;padding:11px 44px 11px 42px;font:16.5px/1.3 inherit;background:#f4f6fa;color:#101722;outline:none}
+.sw .si{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#5b6576;width:20px;height:20px}
+#clr{position:absolute;right:4px;top:50%;transform:translateY(-50%);border:0;background:none;color:#5b6576;width:40px;height:40px;display:none;cursor:pointer;border-radius:20px}
+main{max-width:860px;margin:0 auto;padding:12px 10px 0}
+/* ---------- page headings */
+.kick{display:flex;align-items:center;gap:6px;color:var(--mut);font-size:.8em;font-weight:600;margin:2px 2px 2px}
+h2.pg{margin:2px 2px 4px;font-size:1.3em;line-height:1.3;font-weight:700;color:var(--tx)}
+.lead{color:var(--mut);font-size:.88em;margin:0 2px 12px}
+.sec{font-size:.74em;font-weight:700;color:var(--mut);letter-spacing:.06em;margin:20px 4px 8px;text-transform:uppercase}
+/* ---------- home tiles (same layout as previous version) */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.tile{display:flex;flex-direction:column;gap:8px;background:var(--sf);border-radius:16px;padding:16px 14px 14px;text-decoration:none;color:var(--tx);min-height:126px;border:1px solid #ffffff0a}
+.tile:active{background:var(--sf2)}
+.tile .ic{width:42px;height:42px;border-radius:12px;background:var(--navy3);display:flex;align-items:center;justify-content:center;color:#fff}
+.tile .ic svg.i{width:23px;height:23px}
+.tile b{font-size:.98em;line-height:1.28;font-weight:700}
+.tile .c{font-size:.76em;color:var(--mut);margin-top:auto}
+.tile.wide{grid-column:1/-1;flex-direction:row;align-items:center;min-height:0;padding:12px 14px}
+.tile.wide b{flex:1}.tile.wide .ic{width:36px;height:36px;background:var(--sf3)}
 @media (min-width:640px){.tiles{grid-template-columns:1fr 1fr 1fr}}
-/* lists */
-.list{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(20,30,50,.07)}
-.li{display:flex;align-items:center;gap:12px;padding:14px 14px;text-decoration:none;color:var(--tx);border-bottom:1px solid var(--line)}
-.li:last-child{border-bottom:0}
+/* ---------- lists */
+.list{background:var(--sf);border-radius:var(--r);overflow:hidden}
+.li{display:flex;align-items:center;gap:12px;padding:13px 12px 13px 14px;text-decoration:none;color:var(--tx);border-bottom:1px solid var(--line);min-height:56px}
+.li:last-child{border-bottom:0}.li:active{background:var(--sf2)}
 .li .tx{flex:1;min-width:0}
-.li .tx b{display:block;font-weight:600;line-height:1.3}
-.li .tx small{display:block;color:var(--mut);font-size:.8em;line-height:1.35;margin-top:3px}
-.li .ch{color:var(--mut);font-size:22px;flex:none}
-.li:active{background:rgba(47,84,150,.07)}
-.sec{font-size:.8em;font-weight:700;color:var(--mut);letter-spacing:.03em;margin:20px 4px 8px;text-transform:uppercase}
-/* provisions */
-.prov{background:var(--card);border-radius:14px;padding:14px 14px 12px;margin:0 0 14px;box-shadow:0 1px 3px rgba(20,30,50,.07)}
-.ref{font-size:.8em;font-weight:700;color:var(--pri2);letter-spacing:.01em;line-height:1.35}
-.ptitle{font-weight:600;margin:2px 0 10px;line-height:1.35}
-.badge{display:inline-block;font-size:.72em;font-weight:700;border-radius:20px;padding:1px 8px;margin-left:4px;vertical-align:1px;color:#fff;white-space:nowrap}
-.b-i{background:var(--i)}.b-m{background:var(--m)}.b-n{background:var(--n)}.b-d{background:var(--d)}.b-w{background:var(--w)}.b-x{background:var(--x)}
-.law{background:var(--lawbg);border-left:3px solid var(--lawbd);padding:8px 12px;font-family:"Noto Serif",Georgia,"Times New Roman",serif;font-size:1em;line-height:1.62}
-.law p{margin:0 0 8px}.law p:last-child{margin:0}
-.law.s-m{border-left-color:var(--m)}.law.s-n{border-left-color:var(--n)}.law.s-w{border-left-color:var(--w)}
-.law.s-d{border-left-color:var(--d);color:var(--mut);text-decoration:line-through;text-decoration-thickness:1px}
-.law.s-x{border-left-color:var(--x);color:var(--mut);font-style:italic}
-.law p.dim{color:var(--mut)}
-.mod{display:flex;gap:6px;align-items:baseline;font-size:.78em;color:var(--mut);margin:5px 0 0 2px;line-height:1.4}
-.mod .dot{width:8px;height:8px;border-radius:50%;flex:none;position:relative;top:-1px}
-.s-i .dot,.dot.s-i{background:var(--i)}.dot.s-m{background:var(--m)}.dot.s-n{background:var(--n)}.dot.s-d{background:var(--d)}.dot.s-w{background:var(--w)}.dot.s-x{background:var(--x)}
-.mod b{color:var(--tx);font-weight:600}
-.it{margin:0 0 14px}.it:last-child{margin-bottom:4px}
-.expl{background:var(--expl);border-radius:10px;padding:10px 12px;margin:0 0 12px;font-size:.9em;line-height:1.5}
-.expl .lb{display:block;font-size:.78em;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.03em;margin-bottom:2px}
-.expl ul{margin:4px 0;padding-left:18px}.expl li{margin-bottom:5px}.expl p{margin:4px 0}
-.links{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:.84em}
-.links a{text-decoration:none;font-weight:600}
-.tw{overflow-x:auto;margin:4px 0;-webkit-overflow-scrolling:touch}
-.tcap{font-weight:700;font-size:.88em;margin:2px 0 4px;color:var(--pri)}
-table{border-collapse:collapse;font-size:.8em;min-width:100%;font-family:Roboto,Arial,sans-serif}
-th{background:#1F3864;color:#fff;text-align:left;padding:7px 6px;font-weight:600}
-@media (prefers-color-scheme:dark){th{background:#2a3c5e}}
-td{border-bottom:1px solid var(--line);padding:6px;vertical-align:top}td.lb{font-weight:700;width:30%}
-mark{background:var(--hl);color:inherit;border-radius:2px;padding:0 1px}
-.empty{text-align:center;color:var(--mut);padding:30px 10px}
-.meta{color:var(--mut);font-size:.84em;margin:2px 4px 10px}
-.nav{display:flex;gap:10px;margin:6px 0 4px}.nav a{flex:1;text-align:center;background:var(--card);border-radius:12px;padding:12px 8px;text-decoration:none;font-weight:600;font-size:.88em;box-shadow:0 1px 3px rgba(20,30,50,.07)}
-.leg{display:flex;flex-wrap:wrap;gap:6px 8px;margin:6px 0}
-.btn{display:inline-block;border:1.5px solid var(--pri2);color:var(--pri2);background:transparent;border-radius:10px;padding:8px 14px;font-size:.88em;font-weight:700;text-decoration:none;margin:8px 8px 0 0}
-.btn.pri{background:var(--pri2);color:#fff}
-@media (prefers-color-scheme:dark){.btn.pri{color:#0e131b}}
-.foot{color:var(--mut);font-size:.75em;text-align:center;margin:22px 0 6px;line-height:1.5}
-.foot a{color:var(--mut)}
-.gcard h3{font-size:1em;margin:0 0 6px;color:var(--pri)}
+.li .tx b{display:block;font-weight:600;line-height:1.32}
+.li .tx small{display:block;color:var(--mut);font-size:.79em;line-height:1.38;margin-top:3px}
+.li .ch{color:var(--mut);flex:none}
+.li .num{flex:none;min-width:46px;text-align:center;font-size:.74em;font-weight:700;color:var(--acc);background:#8fb3f01a;border-radius:8px;padding:5px 4px;line-height:1.2}
+/* ---------- provision = one distinct unit */
+.prov{background:var(--sf);border-radius:var(--r);margin:0 0 10px;overflow:hidden}
+.ph{display:flex;gap:8px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;color:inherit;font:inherit;padding:12px 12px 10px 14px;cursor:pointer}
+.ph .hx{flex:1;min-width:0}
+.cite{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:.76em;line-height:1.3;margin-bottom:5px}
+.cite .lw{font-weight:800;color:var(--acc);letter-spacing:.01em}
+.cite .ar,.cite .pa{font-weight:700;color:var(--tx2)}
+.cite .sep{color:var(--mut)}
+.pt{font-size:1.04em;font-weight:700;line-height:1.32;color:var(--tx)}
+.ph .tog{color:var(--mut);margin-top:2px;transition:transform .15s}
+.prov.closed .ph .tog{transform:rotate(-90deg)}
+.prov.closed .pb{display:none}
+.prov.closed .ph{padding-bottom:12px}
+.pb{padding:0 12px 12px 14px}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:.7em;font-weight:700;letter-spacing:.02em;border-radius:20px;padding:2px 9px 2px 7px;line-height:1.5;white-space:nowrap}
+.chip .d{width:7px;height:7px;border-radius:50%;background:currentColor}
+.c-i{color:var(--i);background:#8b96a51f}.c-m{color:var(--m);background:#e2a35f1f}.c-n{color:var(--n);background:#69c38a1f}.c-d{color:var(--d);background:#ec7a7a1f}.c-w{color:var(--w);background:#bb96ec1f}.c-x{color:var(--x);background:#6d77852b}.c-f{color:var(--f);background:#6fb6dd1f}.c-s{color:#c9b07a;background:#c9b07a1c}
+/* legal text */
+.it{margin:0;padding:10px 0 0 12px;border-left:3px solid #8b96a540}
+.it+.it{margin-top:12px}
+.it.s-m{border-left-color:var(--m)}.it.s-n{border-left-color:var(--n)}.it.s-d{border-left-color:var(--d)}.it.s-w{border-left-color:var(--w)}.it.s-x{border-left-color:#6d778566}
+.it.sum{border-left-style:dashed}
+.lx p{margin:0 0 .55em;color:var(--tx);overflow-wrap:anywhere}
+.lx p:last-child{margin-bottom:0}
+.lx p.sub{padding-left:1.25em;text-indent:-1.25em}
+.lx p.sub2{padding-left:2.25em;text-indent:-1.25em}
+.lx p.dash{padding-left:1em;text-indent:-1em}
+.lx p.hd{font-weight:700;color:var(--acc);margin-top:.9em;letter-spacing:.01em}
+.lx p.hd:first-child{margin-top:0}
+.lx b.pn{font-weight:800;color:var(--tx)}
+.it.s-d .lx p{color:var(--mut);text-decoration:line-through;text-decoration-color:#ec7a7a99}
+.it.s-x .lx p,.it.sum .lx p{color:var(--tx2);font-style:italic}
+.it.s-d.sum .lx p{font-style:normal;color:var(--mut)}
+.it.s-d.sum .sumlbl{color:var(--d)}
+.lx p.dim{color:var(--mut)}
+.sumlbl{font-size:.7em;font-weight:700;color:#c9b07a;letter-spacing:.03em;margin:0 0 4px;text-transform:uppercase}
+.mod{display:flex;gap:6px;align-items:flex-start;font-size:.76em;line-height:1.4;color:var(--mut);margin:7px 0 0}
+.mod .d{width:7px;height:7px;border-radius:50%;flex:none;margin-top:.45em}
+.mod b{font-weight:700}
+.mod.s-i b{color:var(--i)}.mod.s-m b{color:var(--m)}.mod.s-n b{color:var(--n)}.mod.s-d b{color:var(--d)}.mod.s-w b{color:var(--w)}.mod.s-x b{color:var(--x)}
+.mod.s-w{color:var(--tx2)}
+.d.s-i{background:var(--i)}.d.s-m{background:var(--m)}.d.s-n{background:var(--n)}.d.s-d{background:var(--d)}.d.s-w{background:var(--w)}.d.s-x{background:var(--x)}
+/* visible validity warning */
+.warn{display:flex;gap:8px;align-items:flex-start;background:#6fb6dd14;color:var(--tx2);border-radius:10px;padding:8px 10px;margin:0 0 10px;font-size:.82em;line-height:1.45}
+.warn svg.i{color:var(--f);margin-top:.1em}
+.warn.w{background:#bb96ec14}.warn.w svg.i{color:var(--w)}
+/* explanatory notes: collapsible */
+details.nt{background:var(--sf2);border-radius:10px;margin:0 0 10px;font-size:.88em;line-height:1.5}
+details.nt>summary{list-style:none;display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;color:var(--tx2);font-weight:600;min-height:44px}
+details.nt>summary::-webkit-details-marker{display:none}
+details.nt>summary .lb{font-size:.78em;font-weight:800;letter-spacing:.05em;color:var(--mut);text-transform:uppercase;flex:none}
+details.nt>summary .st{flex:1;min-width:0}
+details.nt>summary .tog{color:var(--mut);transition:transform .15s}
+details.nt[open]>summary .tog{transform:rotate(90deg)}
+details.nt .nb{padding:0 12px 12px;color:var(--tx2)}
+details.nt .nb p{margin:.35em 0}details.nt .nb ul{margin:.3em 0;padding-left:1.2em}details.nt .nb li{margin-bottom:.35em}
+/* action buttons */
+.acts{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:6px;margin-top:12px}
+.btn{display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 6px;border-radius:10px;background:var(--sf3);color:var(--tx);text-decoration:none;font-size:.78em;font-weight:700;line-height:1.2;text-align:center;border:0;font-family:inherit}
+.btn:active{background:var(--navy3)}
+.btn svg.i{width:18px;height:18px;color:var(--acc)}
+.btn.pri{background:var(--navy3);color:#fff}.btn.pri svg.i{color:#fff}
+.tools{display:flex;justify-content:space-between;align-items:center;margin:0 2px 8px;font-size:.8em;color:var(--mut)}
+.tools button{background:none;border:0;color:var(--acc);font:700 1em inherit;padding:8px 2px;min-height:40px;cursor:pointer}
+/* tables */
+.tw{overflow-x:auto;margin:2px 0;-webkit-overflow-scrolling:touch}
+.tcap{font-weight:700;font-size:.86em;margin:2px 0 6px;color:var(--acc)}
+table{border-collapse:collapse;font-size:.8em;min-width:100%}
+th{background:var(--navy2);color:#fff;text-align:left;padding:7px 8px;font-weight:700}
+td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top;color:var(--tx)}
+tr:nth-child(odd) td{background:#ffffff05}
+td.lb{font-weight:700;width:32%}
+mark{background:var(--hl);color:#fff;border-radius:3px;padding:0 1px}
+.empty{text-align:center;color:var(--mut);padding:36px 10px}
+.meta{color:var(--mut);font-size:.82em;margin:2px 4px 10px}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 4px}
+.nav a{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--sf);border-radius:10px;min-height:48px;padding:8px;text-decoration:none;font-weight:700;font-size:.84em;color:var(--tx)}
+.nav a svg.i{color:var(--acc)}
+.foot{color:var(--mut);font-size:.74em;text-align:center;margin:22px 0 6px;line-height:1.5}
+.card{background:var(--sf);border-radius:var(--r);padding:14px;margin:0 0 10px;font-size:.94em}
+.card h3{margin:0 0 6px;font-size:1em}.card ul{padding-left:1.2em;margin:.4em 0}.card li{margin-bottom:.35em}.card p{margin:.4em 0}
 </style>
 </head>
 <body>
 <header>
- <div class="top"><button id="back" aria-label="Πίσω">‹</button><h1 id="home">ΥΕΦ – Νομοθεσία σε ισχύ<small>Εξωτερική Φρούρηση · Σωφρονιστικό σύστημα</small></h1>
- <button class="ib" id="fm" aria-label="Μικρότερα γράμματα">A−</button><button class="ib" id="fp" aria-label="Μεγαλύτερα γράμματα">A+</button></div>
- <div class="sw"><input id="q" type="text" inputmode="search" enterkeyhint="search" placeholder="Αναζήτηση: λέξη, θέμα, νόμος ή άρθρο" autocomplete="off" autocorrect="off" spellcheck="false"><button id="clr" aria-label="Καθαρισμός">×</button></div>
+ <div class="bar">
+  <button class="hb" id="back" aria-label="Πίσω"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div class="ttl" id="home"><b><span class="t1">ΥΕΦΚΚ</span><span class="t2"> – Νομοθεσία σε ισχύ</span></b><small>Εξωτερική Φρούρηση · Σωφρονιστικό σύστημα</small><small class="t3">Νομοθεσία σε ισχύ</small></div>
+  <button class="hb" id="sbtn" aria-label="Αναζήτηση"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+  <button class="hb" id="fm" aria-label="Μικρότερα γράμματα">A−</button><button class="hb" id="fp" aria-label="Μεγαλύτερα γράμματα">A+</button>
+ </div>
+ <div class="sw"><svg class="i si" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="text" inputmode="search" enterkeyhint="search" placeholder="Αναζήτηση: λέξη, θέμα, νόμος ή άρθρο" autocomplete="off" autocorrect="off" spellcheck="false"><button id="clr" aria-label="Καθαρισμός"><svg class="i" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
 </header>
 <main id="m"></main>
 <script src="data.js"></script>
 <script src="topics.js"></script>
 <script>
 'use strict';
-const D=window.LAWDATA,T=window.TOPICS;
-const STN={i:'Ισχύει',m:'Τροποποιήθηκε',n:'Νέο',d:'Καταργήθηκε',w:'Προσοχή',x:'Δεν αφορά ΥΕΦ'};
+const D=window.LAWDATA,T=window.TOPICS;const PDF_BASE=window.PDF_BASE||'pdf/';
+/* ---------- icons (inline SVG) */
+const P={
+ shield:'<path d="M12 3l8 3v6c0 5-3.4 8.2-8 9-4.6-.8-8-4-8-9V6z"/>',
+ euro:'<path d="M17.5 6.5A7 7 0 1 0 17.5 17.5"/><path d="M4 10h9M4 14h9"/>',
+ swap:'<path d="M4 7h14l-4-4"/><path d="M20 17H6l4 4"/>',
+ clip:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 10h6M9 14h6M9 18h3"/>',
+ bank:'<path d="M3 21h18"/><path d="M5 21V11M9.5 21V11M14.5 21V11M19 21V11"/><path d="M2.5 10L12 4l9.5 6z"/>',
+ spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/>',
+ books:'<path d="M4 19V5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v14"/><path d="M4 19h5"/><path d="M9 19V7a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v12"/><path d="M9 19h5"/><path d="M14.5 6.8l2.9-.8a1 1 0 0 1 1.2.7l2.9 11.6-3.9 1-3.1-12.5"/>',
+ pdf:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/>',
+ info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.6v.2"/>',
+ art:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 12h6M9 16h6"/>',
+ tree:'<path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/>',
+ chevR:'<path d="M9 6l6 6-6 6"/>',chevL:'<path d="M15 6l-6 6 6 6"/>',chevD:'<path d="M6 9l6 6 6-6"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ alert:'<path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.2"/>',
+ note:'<path d="M5 4h14v12l-4 4H5z"/><path d="M15 20v-4h4"/><path d="M8.5 9h7M8.5 12.5h5"/>',
+ dl:'<path d="M12 4v11M7 10l5 5 5-5"/><path d="M5 20h14"/>',open:'<path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'};
+const ico=n=>`<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
+const CATICON={service:'shield',pay:'euro',moves:'swap',duties:'clip',prison:'bank',changes:'spark'};
+
+/* ---------- text helpers */
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// Συντομογραφία της Υπηρεσίας στο περιβάλλον της εφαρμογής (όχι στα νομικά κείμενα, που δεν την περιέχουν).
+const ab=s=>String(s==null?'':s).replace(/ΥΕΦ(?![ΚΑ-Ωα-ωΆ-Ώά-ώ])/g,'ΥΕΦΚΚ');
 function nc(ch){const n=ch.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();let c=(n||ch)[0];if(c==='ς')c='σ';if(c==='’'||c==='΄'||c==="'"||c==='`')c="'";return c}
 function norm(s){let o='';for(const ch of String(s))o+=nc(ch);return o}
 let terms=[];
-function hl(t){t=String(t);if(!terms.length)return esc(t);const chars=[...t];if(chars.length!==t.length)return esc(t);
+function hl(t){t=String(t);if(!terms.length)return esc(t);if([...t].length!==t.length)return esc(t);
  const n=norm(t);const mk=new Uint8Array(t.length);
  for(const w of terms){let i=0;while((i=n.indexOf(w,i))>-1){mk.fill(1,i,i+w.length);i+=w.length}}
  let o='',on=0;for(let i=0;i<t.length;i++){if(mk[i]&&!on){o+='<mark>';on=1}if(!mk[i]&&on){o+='</mark>';on=0}o+=esc(t[i])}if(on)o+='</mark>';return o}
+const ha=s=>hl(ab(s)); // UI text: abbreviation + highlight
 
-// ---------- labels derived from the existing data (no text is altered)
+/* ---------- index of data */
+const STN={i:'Ισχύει',m:'Τροποποιήθηκε',n:'Νέο',d:'Καταργήθηκε',w:'Προσοχή',x:'Δεν αφορά ΥΕΦΚΚ'};
 const DOC={},ART={};D.docs.forEach(d=>{DOC[d.id]=d;d.arts.forEach(a=>{ART[a.id]={a,d}})});
-const LAWNAME={n2721:'ν. 2721/1999',pd215:'π.δ. 215/2006',n5246:'ν. 5246/2025',bill:'Νέο νομοσχέδιο',sk:'Σωφρονιστικός Κώδικας'};
-function lawOf(d,a){if(LAWNAME[d.id])return LAWNAME[d.id];const m=a.t.match(/^(ν\.δ?\.? ?[\d/]+|ν\. [\d/]+|Ποινικός Κώδικας|νσ\.)/);
- if(m)return m[1]==='νσ.'?'Νέο νομοσχέδιο':m[1];return d.law}
-function titleOf(a){return a.t.replace(/^(ν\.δ?\.? ?[\d/]+|ν\. [\d/]+|Ποινικός Κώδικας|νσ\.)\s*–\s*/,'')}
-function artLbl(a){if(/^Μέρος/.test(a.n))return a.n+' (τίτλος)';if(/–/.test(a.n))return 'άρθρα '+a.n;return 'άρθρο '+a.n}
+const LAWNAME={n2721:'ν. 2721/1999',pd215:'π.δ. 215/2006',n5246:'ν. 5246/2025',bill:'Νομοσχέδιο',sk:'Σωφρονιστικός Κώδικας'};
+const LAWRX=/^(ν\.δ?\.? ?[\d/]+|ν\. [\d/]+|Ποινικός Κώδικας|νσ\.)/;
+function lawOf(d,a){if(LAWNAME[d.id])return LAWNAME[d.id];const m=a.t.match(LAWRX);if(m)return m[1]==='νσ.'?'Νομοσχέδιο':m[1];return d.law}
+function titleOf(a){return a.t.replace(new RegExp(LAWRX.source+'\\s*–\\s*'),'')}
+function artLbl(a){if(/^Μέρος/.test(a.n))return a.n+' (τίτλος)';if(/–/.test(a.n))return 'Άρθρα '+a.n;return 'Άρθρο '+a.n}
 function parLbl(it){if(it.T)return 'πίνακας';const f=it.L[0];let m;
  if((m=f.match(/^(\d{1,2}[Α-Ω]?)\.(?!\d)/)))return 'παρ. '+m[1];if((m=f.match(/^([α-ω]{1,3})\)/)))return 'περ. '+m[1];return ''}
-function refLine(d,a,its){const ps=its?its.map(parLbl).filter(Boolean):[];
- return [lawOf(d,a),artLbl(a)].concat(ps.length?[ps.join(', ')]:[]).join(' · ')}
-const PDFOF=d=>d.pdf?`<a href="pdf/${d.pdf}" target="_blank" rel="noopener">📄 PDF</a>`:'';
-
-// reverse map: which topics include an article
+// μη αυτούσιο κείμενο (περιλήψεις/ενδείξεις που υπάρχουν ήδη στα δεδομένα)
+function isSummary(it){if(it.T)return /ΔΙΚΟΣ ΜΑΣ ΥΠΟΛΟΓΙΣΜΟΣ/.test(it.c||'');const l=it.L;
+ if(/περίληψη/.test(it.c||''))return true;
+ if(l.length===1&&(/\[Καταργήθηκε\]$/.test(l[0])||/^(\S+\s)?\(.*\)\.?$/.test(l[0])))return true;
+ if(l.length===1&&/^[α-ω]{1,2}\) .*\((κατά βαθμό|επιδόματα [^)]*)\)/.test(l[0])&&it.s==='x')return true;
+ return false}
+function futureOf(it){const c=it.c||'';if(/1\.1\.2027/.test(c))return 'Ισχύει από 1.1.2027';if(/από τη στελέχωση/.test(c))return 'Ισχύει από τη στελέχωση του Σώματος';if(/έως 31\.12\.2026/.test(c))return 'Για ΥΕΦΚΚ έως 31.12.2026';return ''}
 const TOPICS_OF={};T.forEach(c=>c.topics.forEach(t=>t.r.forEach(r=>{if(r.a){(TOPICS_OF[r.a]=TOPICS_OF[r.a]||[]);if(!TOPICS_OF[r.a].some(x=>x.t===t))TOPICS_OF[r.a].push({c,t})}})));
 const TOPIC={};T.forEach(c=>c.topics.forEach(t=>TOPIC[c.id+'/'+t.id]={c,t}));
 
-// ---------- rendering of official text
-function tbl(Tb){let o=Tb.cap?`<div class="tcap">${hl(Tb.cap)}</div>`:'';o+='<div class="tw"><table><tr>'+Tb.cols.map(c=>`<th>${hl(c)}</th>`).join('')+'</tr>';
+/* ---------- legal line formatting: structure only, text unchanged */
+const MRK=/^(\d{1,2}[Α-Ω]?\.[α-ω][\.\)]|\d{1,2}[Α-Ω]?\.|[α-ω]{1,3}\)(?: [α-ω]{2}\))?|[α-ω]{1,2}\.(?! ?\d)|[Α-Ω]΄?\.|[Α-Ω]΄|−|-)(?=\s|$)/;
+function isHead(l){const t=l.trim();if(/[α-ωά-ώ]/.test(t)===false&&/[Α-Ω]/.test(t)&&t.length>2)return true;
+ if(t.length<46&&/^[Α-Ω]΄?\.?\s+[Α-ΩΆ-Ώ]/.test(t)&&!/[,;:]/.test(t))return true;
+ if(t.length<62&&/^\d{1,2}\.\s[^.:;,]{2,}$/.test(t))return true;return false}
+function fmtLine(l){if(isHead(l))return `<p class="hd">${hl(l)}</p>`;const m=l.match(MRK);let cls='';
+ if(m){const k=m[1];if(k==='−'||k==='-')cls='dash';else if(/^[α-ω]{2,3}\)/.test(k))cls='sub2';else if(/^[α-ω]/.test(k))cls='sub';}
+ const body=m?`<b class="pn">${hl(m[1])}</b>${hl(l.slice(m[1].length))}`:hl(l);
+ return `<p${cls?` class="${cls}"`:''}>${body}</p>`}
+
+/* ---------- rendering blocks */
+function tbl(Tb){let o=Tb.cap?`<div class="tcap">${ha(Tb.cap)}</div>`:'';o+='<div class="tw"><table><tr>'+Tb.cols.map(c=>`<th>${ha(c)}</th>`).join('')+'</tr>';
  for(const r of Tb.rows)o+='<tr>'+r.map(c=>`<td>${hl(c)}</td>`).join('')+'</tr>';return o+'</table></div>'}
-function modLine(it){const c=(it.c||'').replace(/^ισχύει( – )?/,'');return `<div class="mod"><span class="dot s-${it.s}"></span><span><b>${STN[it.s]}</b>${c?' · '+hl(c):''}</span></div>`}
-function lawBlock(it,lines){if(it.T)return tbl(it.T);return `<div class="law s-${it.s}">`+(lines||it.L).map(l=>typeof l==='string'?`<p>${hl(l)}</p>`:l.h).join('')+'</div>'}
-function itemHtml(it,lines){return `<div class="it">${lawBlock(it,lines)}${modLine(it)}</div>`}
-function explBox(label,html){return `<div class="expl"><span class="lb">${label}</span>${html}</div>`}
+function modLine(it){const c=ab((it.c||'').replace(/^ισχύει( – )?/,''));
+ return `<div class="mod s-${it.s}"><span class="d s-${it.s}"></span><span><b>${STN[it.s]}</b>${c?' · '+hl(c):''}</span></div>`}
+function itemHtml(it,lines){const sum=isSummary(it);
+ let o=`<div class="it s-${it.s}${sum?' sum':''}">`;
+ if(sum)o+=`<div class="sumlbl">${it.T?'Υπολογισμός – όχι νομικό κείμενο':it.s==='d'?'Καταργημένη – εμφανίζεται μόνο η περιγραφή της':'Περίληψη – όχι αυτούσιο κείμενο'}</div>`;
+ if(it.T)o+=tbl(it.T);else o+='<div class="lx">'+(lines||it.L).map(l=>typeof l==='string'?fmtLine(l):l.h).join('')+'</div>';
+ return o+modLine(it)+'</div>'}
+function note(label,html,summary,open){return `<details class="nt"${open?' open':''}><summary><span class="lb">${label}</span><span class="st">${summary||''}</span><span class="tog">${ico('chevR')}</span></summary><div class="nb">${html}</div></details>`}
+function chips(its,a){const set=new Set(its.map(it=>it.s));let o='';
+ for(const s of ['n','m','d','w','x','i'])if(set.has(s))o+=`<span class="chip c-${s}"><span class="d"></span>${STN[s]}</span>`;
+ const f=[...new Set(its.map(futureOf).filter(Boolean))];f.forEach(x=>o+=`<span class="chip c-f">${ico('clock')}${x}</span>`);
+ if(its.some(isSummary))o+=`<span class="chip c-s">Περιέχει περίληψη</span>`;
+ return `<div class="chips">${o}</div>`}
+function acts(d,a,whole){const b=[];
+ if(!whole)b.push(`<a class="btn" href="#a/${a.id}">${ico('art')}Όλο το άρθρο</a>`);
+ b.push(`<a class="btn" href="#d/${d.id}">${ico('tree')}Δομή νόμου</a>`);
+ if(d.pdf)b.push(`<a class="btn" href="${PDF_BASE}${d.pdf}" target="_blank" rel="noopener">${ico('pdf')}ΦΕΚ / PDF</a>`);
+ return `<div class="acts" style="--n:${b.length}">${b.join('')}</div>`}
 function provCard(d,a,idxs,opts={}){
  const its=idxs?idxs.map(i=>a.items[i]):a.items;
- const st=its.length===1?its[0].s:a.s;
- let o=`<div class="prov"><div class="ref">${esc(refLine(d,a,idxs?its:null))}${idxs?'':' · ολόκληρο'}<span class="badge b-${st}">${STN[st]}</span></div><div class="ptitle">${hl(titleOf(a))}</div>`;
- if(a.note)o+=explBox('Σημείωση',hl(a.note));
+ const pars=idxs?its.map(parLbl).filter(Boolean):[];
+ let o=`<section class="prov${opts.closed?' closed':''}"><button class="ph" aria-expanded="${opts.closed?'false':'true'}"><span class="hx"><span class="cite"><span class="lw">${esc(lawOf(d,a))}</span><span class="sep">›</span><span class="ar">${esc(artLbl(a))}</span>${pars.length?`<span class="sep">›</span><span class="pa">${esc(pars.join(', '))}</span>`:''}${idxs?'':'<span class="sep">·</span><span class="pa" style="font-weight:600;color:var(--mut)">ολόκληρο</span>'}</span><span class="pt">${ha(titleOf(a))}</span>${chips(its,a)}</span><span class="tog">${ico('chevD')}</span></button><div class="pb">`;
+ if(d.id==='n5246'&&d.intro)o+=`<div class="warn">${ico('clock')}<span>${hl(ab(d.intro))}</span></div>`;
+ const wi=its.filter(it=>it.s==='w');
+ if(wi.length&&!opts.search)o+=`<div class="warn w">${ico('alert')}<span>Προσοχή: ${wi.length===its.length?'η διάταξη':'μέρος της διάταξης'} δεν εφαρμόζεται πλήρως – δείτε την ένδειξη κάτω από ${wi.length===1&&its.length===1?'το κείμενο':'την αντίστοιχη παράγραφο'}.</span></div>`;
+ if(a.note)o+=note('Σημείωση',`<p>${ha(a.note)}</p>`,'',false);
  o+=its.map(it=>itemHtml(it,opts.lines&&opts.lines.get(it))).join('');
- o+=`<div class="links">`+(idxs||opts.search?`<a href="#a/${a.id}">Όλο το άρθρο ›</a>`:'')+`<a href="#d/${d.id}">${esc(lawOf(d,a)==='Νέο νομοσχέδιο'?'Δομή νομοσχεδίου':'Δομή: '+d.law.replace(/ \(.*$/,''))}</a>${PDFOF(d)}</div></div>`;
+ o+=acts(d,a,!idxs)+'</div></section>';
  return o}
-// ---------- explanatory guide blocks (not law)
 function blk(b){switch(b.t){
- case'p':return`<p>${b.bold?'<b>':''}${hl(b.text)}${b.bold?'</b>':''}</p>`;
- case'law':return'<div class="law">'+b.paras.map(p=>`<p>${hl(p)}</p>`).join('')+'</div>';
- case'desc':return`<p><i>${hl(b.text)}</i></p>`;
- case'note':return`<p><b>${hl(b.label)}:</b> ${hl(b.text)}</p>`;
- case'bullets':return'<ul>'+b.items.map(i=>`<li>${hl(i)}</li>`).join('')+'</ul>';
- case'table':{const hh=b.cols.some(c=>c);let o='<div class="tw"><table>';if(hh)o+='<tr>'+b.cols.map(c=>`<th>${hl(c)}</th>`).join('')+'</tr>';
-  for(const r of b.rows)o+='<tr>'+r.map((c,i)=>`<td${!hh&&i===0?' class="lb"':''}>${hl(c)}</td>`).join('')+'</tr>';return o+'</table></div>'}
+ case'p':return`<p>${b.bold?'<b>':''}${ha(b.text)}${b.bold?'</b>':''}</p>`;
+ case'law':return'<div class="lx">'+b.paras.map(p=>fmtLine(p)).join('')+'</div>';
+ case'desc':return`<p><i>${ha(b.text)}</i></p>`;
+ case'note':return`<p><b>${ha(b.label)}:</b> ${ha(b.text)}</p>`;
+ case'bullets':return'<ul>'+b.items.map(i=>`<li>${ha(i)}</li>`).join('')+'</ul>';
+ case'table':{const hh=b.cols.some(c=>c);let o='<div class="tw"><table>';if(hh)o+='<tr>'+b.cols.map(c=>`<th>${ha(c)}</th>`).join('')+'</tr>';
+  for(const r of b.rows)o+='<tr>'+r.map((c,i)=>`<td${!hh&&i===0?' class="lb"':''}>${ha(c)}</td>`).join('')+'</tr>';return o+'</table></div>'}
  default:return''}}
-function guideCard(c){return explBox('Επεξήγηση – όχι νομικό κείμενο',(c.h?`<p><b>${hl(c.h)}</b></p>`:'')+c.b.map(blk).join(''))}
+function guideCard(c,gt,open){const s=c.h?ha(c.h):ha(gt);return note('Επεξήγηση',c.b.map(blk).join(''),s,open)}
 
-// ---------- views
+/* ---------- views */
 const m=document.getElementById('m'),q=document.getElementById('q'),clr=document.getElementById('clr'),back=document.getElementById('back');
-function countTopicRefs(t){return t.r.length}
 function home(){
- let o='<div class="tiles">'+T.map(c=>`<a class="tile" href="#c/${c.id}"><span class="ic">${c.ic}</span><b>${esc(c.t)}</b><span class="c">${c.topics.length} θέματα</span></a>`).join('')+
-  `<a class="tile" href="#laws"><span class="ic">📚</span><b>Όλοι οι νόμοι</b><span class="c">με την αρχική τους δομή</span></a>`+
-  `<a class="tile" href="#pdf"><span class="ic">📄</span><b>Επίσημα αρχεία PDF</b><span class="c">${D.pdfs.length} αρχεία</span></a>`+
-  `<a class="tile wide" href="#about"><span class="ic" style="font-size:22px">ℹ️</span><b>Πώς διαβάζεται η εφαρμογή</b><span class="ch" style="color:var(--mut);font-size:22px">›</span></a></div>`;
+ let o='<div class="tiles">'+T.map(c=>`<a class="tile" href="#c/${c.id}"><span class="ic">${ico(CATICON[c.id]||'info')}</span><b>${esc(ab(c.t))}</b><span class="c">${c.topics.length} θέματα</span></a>`).join('')+
+  `<a class="tile" href="#laws"><span class="ic">${ico('books')}</span><b>Όλοι οι νόμοι</b><span class="c">με την αρχική τους δομή</span></a>`+
+  `<a class="tile" href="#pdf"><span class="ic">${ico('pdf')}</span><b>Επίσημα αρχεία PDF</b><span class="c">${D.pdfs.length} αρχεία</span></a>`+
+  `<a class="tile wide" href="#about"><span class="ic">${ico('info')}</span><b>Πώς διαβάζεται η εφαρμογή</b><span class="ch" style="color:var(--mut)">${ico('chevR')}</span></a></div>`;
  o+=`<div class="foot">Ενημέρωση δεδομένων: ${esc(D.built)} · Δεν αντικαθιστά το ΦΕΚ</div>`;m.innerHTML=o}
-function refSummary(t){const s=[];t.r.forEach(r=>{if(r.a){const {a,d}=ART[r.a];const x=lawOf(d,a)+' '+artLbl(a).replace('άρθρο','άρθ.').replace('άρθρα','άρθ.');if(!s.includes(x))s.push(x)}else if(r.g!=null){if(!s.includes('επεξήγηση'))s.push('επεξήγηση')}else if(r.dyn)s.push('συγκεντρωτικός κατάλογος')});return s.join(' · ')}
-function catView(c){m.innerHTML=`<h2 class="pg">${c.ic} ${esc(c.t)}</h2><p class="lead">${esc(c.d)}</p><div class="list">`+
- c.topics.map(t=>`<a class="li" href="#t/${c.id}/${t.id}"><span class="tx"><b>${esc(t.t)}</b><small>${esc(refSummary(t))}</small></span><span class="ch">›</span></a>`).join('')+'</div>'}
+function refSummary(t){const s=[];t.r.forEach(r=>{if(r.a){const {a,d}=ART[r.a];const x=lawOf(d,a)+' '+artLbl(a).replace('Άρθρο','άρθ.').replace('Άρθρα','άρθ.');if(!s.includes(x))s.push(x)}else if(r.g!=null){if(!s.includes('επεξήγηση'))s.push('επεξήγηση')}else if(r.dyn)s.push('συγκεντρωτικός κατάλογος')});return s.join(' · ')}
+function catView(c){m.innerHTML=`<div class="kick">${ico(CATICON[c.id]||'info')} Κατηγορία</div><h2 class="pg">${esc(ab(c.t))}</h2><p class="lead">${esc(ab(c.d))}</p><div class="list">`+
+ c.topics.map(t=>`<a class="li" href="#t/${c.id}/${t.id}"><span class="tx"><b>${esc(ab(t.t))}</b><small>${esc(ab(refSummary(t)))}</small></span><span class="ch">${ico('chevR')}</span></a>`).join('')+'</div>'}
 function dynList(s){const out=[];D.docs.forEach(d=>d.arts.forEach(a=>a.items.forEach((it,i)=>{if(it.s===s)out.push({d,a,i})})));return out}
-function topicView(c,t){let o=`<div class="meta">${c.ic} ${esc(c.t)}</div><h2 class="pg">${esc(t.t)}</h2>`;
- const n=t.r.filter(r=>r.a).length;if(n>1)o+=`<p class="lead">Σχετικές διατάξεις: ${n}</p>`;
+function toolsBar(n){return n>1?`<div class="tools"><span>${n} διατάξεις</span><span><button data-all="close">Σύμπτυξη όλων</button> · <button data-all="open">Ανάπτυξη όλων</button></span></div>`:''}
+function topicView(c,t){let o=`<div class="kick">${ico(CATICON[c.id]||'info')} ${esc(ab(c.t))}</div><h2 class="pg">${esc(ab(t.t))}</h2>`;
+ const L=[];t.r.forEach(r=>{if(r.a)L.push(r);else if(r.dyn)dynList(r.dyn).forEach(x=>L.push({dynItem:x}))});
+ const many=L.length>8;
+ o+=toolsBar(L.length);
+ let dynHead=false;
  for(const r of t.r){
-  if(r.a){const {a,d}=ART[r.a];o+=provCard(d,a,r.p||null)}
-  else if(r.g!=null){const g=D.guide[r.g];o+=`<div class="sec">${esc(g.t)}</div>`+g.cards.map(guideCard).join('')}
-  else if(r.dyn){const L=dynList(r.dyn);o+=`<div class="sec">${STN[r.dyn]} – ${L.length} διατάξεις σε όλους τους νόμους</div>`+L.map(({d,a,i})=>provCard(d,a,[i])).join('')}}
+  if(r.a){const {a,d}=ART[r.a];o+=provCard(d,a,r.p||null,{closed:many})}
+  else if(r.g!=null){const g=D.guide[r.g];o+=`<div class="sec">${esc(ab(g.t))} – επεξήγηση</div>`+g.cards.map(cd=>guideCard(cd,g.t,!cd.h)).join('')}
+  else if(r.dyn){const Ls=dynList(r.dyn);o+=`<div class="sec">${STN[r.dyn]} – ${Ls.length} διατάξεις σε όλους τους νόμους</div>`+Ls.map(({d,a,i})=>provCard(d,a,[i],{closed:true})).join('')}}
  m.innerHTML=o}
-function lawsView(){m.innerHTML=`<h2 class="pg">📚 Όλοι οι νόμοι</h2><p class="lead">Κάθε νόμος με την αρχική του σειρά άρθρων.</p><div class="list">`+
- D.docs.map(d=>`<a class="li" href="#d/${d.id}"><span class="tx"><b>${esc(d.law)}</b><small>${esc(d.title)}</small></span><span class="ch">›</span></a>`).join('')+'</div>'}
-function docView(d){let o=`<h2 class="pg">${esc(d.law)}</h2><p class="lead">${esc(d.title)}</p>`;
- if(d.intro)o+=explBox('Σημείωση',esc(d.intro));
- o+='<div class="list">'+d.arts.map(a=>`<a class="li" href="#a/${a.id}"><span class="tx"><b>${esc(titleOf(a))}</b><small>${esc(lawOf(d,a)+' · '+artLbl(a))} · <span class="dot s-${a.s}" style="display:inline-block;width:7px;height:7px;border-radius:50%"></span> ${STN[a.s]}</small></span><span class="ch">›</span></a>`).join('')+'</div>';
- if(d.pdf)o+=`<a class="btn" href="pdf/${d.pdf}" target="_blank" rel="noopener">📄 Άνοιγμα PDF</a>`;
+function lawsView(){m.innerHTML=`<div class="kick">${ico('books')} Βιβλιοθήκη</div><h2 class="pg">Όλοι οι νόμοι</h2><p class="lead">Κάθε νόμος με την αρχική του σειρά άρθρων.</p><div class="list">`+
+ D.docs.map(d=>`<a class="li" href="#d/${d.id}"><span class="tx"><b>${esc(ab(d.law))}</b><small>${esc(ab(d.title))}</small></span><span class="ch">${ico('chevR')}</span></a>`).join('')+'</div>'}
+function docView(d){let o=`<div class="kick">${ico('tree')} Δομή νόμου</div><h2 class="pg">${esc(ab(d.law))}</h2><p class="lead">${esc(ab(d.title))}</p>`;
+ if(d.intro)o+=note('Σημείωση',`<p>${ha(d.intro)}</p>`,'',false);
+ o+='<div class="list">'+d.arts.map(a=>`<a class="li" href="#a/${a.id}"><span class="num">${esc(/^Μέρος/.test(a.n)?'Μ. Γ΄':a.n)}</span><span class="tx"><b>${esc(ab(titleOf(a)))}</b><small>${esc(lawOf(d,a)+' · '+artLbl(a))} · <span class="d s-${a.s}" style="display:inline-block;width:7px;height:7px;border-radius:50%;vertical-align:1px"></span> ${STN[a.s]}</small></span><span class="ch">${ico('chevR')}</span></a>`).join('')+'</div>';
+ if(d.pdf)o+=`<div class="acts" style="--n:1;margin-top:12px"><a class="btn" href="${PDF_BASE}${d.pdf}" target="_blank" rel="noopener">${ico('pdf')}ΦΕΚ / PDF</a></div>`;
  m.innerHTML=o}
 function artView({a,d}){const i=d.arts.indexOf(a);
- let o=`<div class="meta"><a href="#d/${d.id}" style="text-decoration:none">${esc(d.law)}</a></div>`+provCard(d,a,null);
+ let o=`<div class="kick">${ico('art')} ${esc(ab(d.law))}</div>`+provCard(d,a,null);
  const tp=TOPICS_OF[a.id]||[];
- if(tp.length)o+=`<div class="sec">Θέματα που το περιλαμβάνουν</div><div class="list">`+tp.map(({c,t})=>`<a class="li" href="#t/${c.id}/${t.id}"><span class="tx"><b>${esc(t.t)}</b><small>${esc(c.t)}</small></span><span class="ch">›</span></a>`).join('')+'</div>';
- o+='<div class="nav" style="margin-top:14px">'+(i>0?`<a href="#a/${d.arts[i-1].id}">‹ ${esc(artLbl(d.arts[i-1]))}</a>`:'<span style="flex:1"></span>')+
-   (i<d.arts.length-1?`<a href="#a/${d.arts[i+1].id}">${esc(artLbl(d.arts[i+1]))} ›</a>`:'<span style="flex:1"></span>')+'</div>';
+ if(tp.length)o+=`<div class="sec">Θέματα που το περιλαμβάνουν</div><div class="list">`+tp.map(({c,t})=>`<a class="li" href="#t/${c.id}/${t.id}"><span class="tx"><b>${esc(ab(t.t))}</b><small>${esc(ab(c.t))}</small></span><span class="ch">${ico('chevR')}</span></a>`).join('')+'</div>';
+ o+='<div class="nav">'+(i>0?`<a href="#a/${d.arts[i-1].id}">${ico('chevL')}${esc(artLbl(d.arts[i-1]))}</a>`:'<span></span>')+
+   (i<d.arts.length-1?`<a href="#a/${d.arts[i+1].id}">${esc(artLbl(d.arts[i+1]))}${ico('chevR')}</a>`:'<span></span>')+'</div>';
  m.innerHTML=o}
-function pdfView(){m.innerHTML=`<h2 class="pg">📄 Επίσημα αρχεία PDF</h2><p class="lead">Τα κείμενα από τα οποία προέρχεται η εφαρμογή. «Λήψη» για αποθήκευση στο κινητό.</p>`+
- D.pdfs.map(p=>`<div class="prov"><div class="ptitle" style="margin:0">${esc(p.t)}</div><div style="color:var(--mut);font-size:.88em">${esc(p.d)}</div><a class="btn" href="pdf/${p.f}" target="_blank" rel="noopener">Άνοιγμα</a><a class="btn pri" href="pdf/${p.f}" download>Λήψη</a></div>`).join('')}
-function aboutView(){const leg='<div class="leg">'+Object.entries(STN).map(([k,v])=>`<span class="badge b-${k}" style="margin:0">${v}</span>`).join('')+'</div>';
- m.innerHTML=`<h2 class="pg">Πώς διαβάζεται</h2>
-<div class="prov"><p style="margin-top:0">Διάλεξε <b>κατηγορία</b> και μετά <b>θέμα</b>. Θα δεις όλες τις σχετικές διατάξεις, με το <b>ακριβές άρθρο και την παράγραφο</b> πάνω από κάθε κείμενο.</p>
-<div class="law"><p>Το νομικό κείμενο εμφανίζεται έτσι – όπως ισχύει τελικά, με τις αλλαγές ήδη ενσωματωμένες.</p></div>
-<div class="mod"><span class="dot s-m"></span><span><b>Τροποποιήθηκε</b> · από κάτω, με μικρά γράμματα, από πού προέρχεται η αλλαγή.</span></div>
-<p>Χρώμα ένδειξης:</p>${leg}
-<ul><li><b>Ισχύει</b> – δεν άλλαξε.</li><li><b>Τροποποιήθηκε</b> – άλλαξε· το σχόλιο λέει από ποιο άρθρο.</li><li><b>Νέο</b> – προστέθηκε τώρα.</li><li><b>Καταργήθηκε</b> – δεν ισχύει πια (διαγραμμένο).</li><li><b>Προσοχή</b> – δεν καταργήθηκε ρητά, αλλά δεν εφαρμόζεται (ή όχι πλήρως) επειδή συγκρούεται με νεότερη διάταξη.</li><li><b>Δεν αφορά ΥΕΦ</b> – υπάρχει στον νόμο, αλλά δεν εφαρμόζεται στην Εξωτερική Φρούρηση.</li></ul></div>
-${explBox('Έτσι εμφανίζονται οι επεξηγήσεις','Τα γκρι πλαίσια με την ένδειξη «Επεξήγηση» ή «Σημείωση» δεν είναι νομικό κείμενο.')}
-<div class="prov"><b>Συντομογραφίες</b><ul><li><b>νσ.</b> – το νέο νομοσχέδιο του Υπουργείου Προστασίας του Πολίτη (63 άρθρα).</li><li><b>ΥΕΦ / ΕΦ</b> – Υπηρεσία Εξωτερικής Φρούρησης.</li><li><b>ΣΚ</b> – Σωφρονιστικός Κώδικας (ν. 2776/1999) ή Σωφρονιστικό Κατάστημα.</li><li><b>ΙΑΑ</b> – Ιδρύματα Αγωγής Ανηλίκων · <b>ΓΓΑΠ</b> – Γενική Γραμματεία Αντεγκληματικής Πολιτικής · <b>ΣΕΕΣΚ</b> – Σώμα Επιθεώρησης και Ελέγχου Σωφρονιστικών Καταστημάτων.</li><li><b>ΑΥ</b> – Αξιωματικός Υπηρεσίας · <b>Μ.Κ.</b> – μισθολογικό κλιμάκιο · <b>ΥΑ / ΚΥΑ</b> – (κοινή) υπουργική απόφαση.</li></ul></div>
-<div class="prov"><b>Αναζήτηση</b><p>Γράψε λέξη, θέμα, νόμο ή άρθρο, π.χ. «ρεπό», «μετάθεση», «2721 49», «άρθρο 16». Τόνοι και κεφαλαία δεν παίζουν ρόλο· αρκεί και κομμάτι λέξης.</p></div>
-<div class="prov"><b>Εγκατάσταση στο κινητό</b><ul><li><b>Android (Chrome):</b> μενού ⋮ → «Εγκατάσταση εφαρμογής» ή «Προσθήκη στην αρχική οθόνη».</li><li><b>iPhone (Safari):</b> Κοινοποίηση → «Προσθήκη στην οθόνη Αφετηρίας».</li></ul><p>Μετά την πρώτη φόρτωση δουλεύει και χωρίς ίντερνετ. Κάθε PDF μένει αποθηκευμένο αφού το ανοίξεις μία φορά.</p></div>
-${explBox('Σημαντικό','Η εφαρμογή βασίζεται στο κείμενο του νομοσχεδίου (63 άρθρα) και στα ΦΕΚ του φακέλου PDF. Αν το τελικό ΦΕΚ διαφέρει, υπερισχύει το ΦΕΚ. Ο πλήρης κωδικοποιημένος Σωφρονιστικός Κώδικας δεν περιλαμβάνεται – μόνο τα άρθρα του που αλλάζουν. Δεν αποτελεί νομική συμβουλή.')}`}
-function guideView(i){const g=D.guide[i];m.innerHTML=`<h2 class="pg">${esc(g.t)}</h2>`+g.cards.map(guideCard).join('')}
+function pdfView(){m.innerHTML=`<div class="kick">${ico('pdf')} Αρχεία</div><h2 class="pg">Επίσημα αρχεία PDF</h2><p class="lead">Τα κείμενα από τα οποία προέρχεται η εφαρμογή. «Λήψη» για αποθήκευση στο κινητό.</p>`+
+ D.pdfs.map(p=>`<div class="card"><h3>${esc(ab(p.t))}</h3><div style="color:var(--mut);font-size:.88em">${esc(ab(p.d))}</div><div class="acts" style="--n:2"><a class="btn" href="${PDF_BASE}${p.f}" target="_blank" rel="noopener">${ico('open')}Άνοιγμα</a><a class="btn pri" href="${PDF_BASE}${p.f}" download>${ico('dl')}Λήψη</a></div></div>`).join('')}
+function aboutView(){const leg=Object.entries(STN).map(([k,v])=>`<span class="chip c-${k}"><span class="d"></span>${v}</span>`).join(' ');
+ m.innerHTML=`<div class="kick">${ico('info')} Οδηγίες</div><h2 class="pg">Πώς διαβάζεται</h2>
+<div class="card"><p style="margin-top:0">Διάλεξε <b>κατηγορία</b> και μετά <b>θέμα</b>. Κάθε διάταξη είναι ξεχωριστή ενότητα: πάνω ο <b>νόμος › άρθρο › παράγραφος</b> και ο τίτλος, από κάτω το κείμενο όπως ισχύει τελικά. Πάτα την επικεφαλίδα για σύμπτυξη/ανάπτυξη.</p>
+<div class="it s-m"><div class="lx"><p><b class="pn">1.</b> Έτσι εμφανίζεται το νομικό κείμενο.</p></div>${modLine({s:'m',c:'από κάτω, μικρά: από πού προέρχεται η αλλαγή'})}</div>
+<p>Χρώματα ένδειξης:</p><div class="chips">${leg} <span class="chip c-f">${ico('clock')}Μελλοντική έναρξη</span> <span class="chip c-s">Περίληψη</span></div>
+<ul><li><b>Ισχύει</b> – δεν άλλαξε.</li><li><b>Τροποποιήθηκε</b> – άλλαξε· το σχόλιο λέει από ποιο άρθρο.</li><li><b>Νέο</b> – προστέθηκε τώρα.</li><li><b>Καταργήθηκε</b> – δεν ισχύει πια (διαγραμμένο).</li><li><b>Προσοχή</b> – δεν καταργήθηκε ρητά, αλλά δεν εφαρμόζεται (ή όχι πλήρως) επειδή συγκρούεται με νεότερη διάταξη.</li><li><b>Δεν αφορά ΥΕΦΚΚ</b> – υπάρχει στον νόμο, αλλά δεν εφαρμόζεται στην Εξωτερική Φρούρηση.</li><li><b>Μελλοντική έναρξη</b> – η διάταξη ισχύει από μεταγενέστερη ημερομηνία.</li><li><b>Περίληψη</b> – σύντομη περιγραφή, όχι αυτούσιο νομικό κείμενο.</li></ul></div>
+${note('Επεξήγηση','<p>Τα αναπτυσσόμενα πλαίσια «Επεξήγηση» και «Σημείωση» δεν είναι νομικό κείμενο. Ανοίγουν με πάτημα.</p>','Πώς εμφανίζονται οι επεξηγήσεις',false)}
+<div class="card"><h3>Συντομογραφίες</h3><ul><li><b>νσ.</b> – το νέο νομοσχέδιο του Υπουργείου Προστασίας του Πολίτη (63 άρθρα).</li><li><b>ΥΕΦΚΚ</b> – Υπηρεσία Εξωτερικής Φρούρησης Καταστημάτων Κράτησης · <b>ΕΦ</b> – Εξωτερική Φρούρηση.</li><li><b>ΣΚ</b> – Σωφρονιστικός Κώδικας (ν. 2776/1999) ή Σωφρονιστικό Κατάστημα.</li><li><b>ΙΑΑ</b> – Ιδρύματα Αγωγής Ανηλίκων · <b>ΓΓΑΠ</b> – Γενική Γραμματεία Αντεγκληματικής Πολιτικής · <b>ΣΕΕΣΚ</b> – Σώμα Επιθεώρησης και Ελέγχου Σωφρονιστικών Καταστημάτων.</li><li><b>ΑΥ</b> – Αξιωματικός Υπηρεσίας · <b>Μ.Κ.</b> – μισθολογικό κλιμάκιο · <b>ΥΑ / ΚΥΑ</b> – (κοινή) υπουργική απόφαση.</li></ul></div>
+<div class="card"><h3>Αναζήτηση</h3><p>Γράψε λέξη, θέμα, νόμο ή άρθρο, π.χ. «ρεπό», «μετάθεση», «2721 49», «άρθρο 16». Τόνοι και κεφαλαία δεν παίζουν ρόλο· αρκεί και κομμάτι λέξης. Στις εσωτερικές οθόνες πάτα τον μεγεθυντικό φακό πάνω δεξιά.</p></div>
+<div class="card"><h3>Εγκατάσταση στο κινητό</h3><ul><li><b>Android (Chrome):</b> μενού ⋮ → «Εγκατάσταση εφαρμογής» ή «Προσθήκη στην αρχική οθόνη».</li><li><b>iPhone (Safari):</b> Κοινοποίηση → «Προσθήκη στην οθόνη Αφετηρίας».</li></ul><p>Μετά την πρώτη φόρτωση δουλεύει και χωρίς ίντερνετ. Κάθε PDF μένει αποθηκευμένο αφού το ανοίξεις μία φορά.</p></div>
+<div class="warn w">${ico('alert')}<span>Η εφαρμογή βασίζεται στο κείμενο του νομοσχεδίου (63 άρθρα) και στα ΦΕΚ του φακέλου PDF. Αν το τελικό ΦΕΚ διαφέρει, υπερισχύει το ΦΕΚ. Ο πλήρης κωδικοποιημένος Σωφρονιστικός Κώδικας δεν περιλαμβάνεται – μόνο τα άρθρα του που αλλάζουν. Δεν αποτελεί νομική συμβουλή.</span></div>`}
+function guideView(i){const g=D.guide[i];m.innerHTML=`<div class="kick">${ico('note')} Επεξήγηση – όχι νομικό κείμενο</div><h2 class="pg">${esc(ab(g.t))}</h2>`+g.cards.map(c=>guideCard(c,g.t,true)).join('')}
 
-// ---------- search
+/* ---------- search */
 const IDX=[];
 D.docs.forEach(d=>d.arts.forEach(a=>{const L=lawOf(d,a);const nums=L.match(/[\d/]+/g)||[];
- const head=norm([L,d.law,nums.join(' '),nums.map(x=>x.split('/')[0]).join(' '),'αρθρο '+a.n,'αρθ '+a.n,'αρθ. '+a.n,a.n,titleOf(a),(TOPICS_OF[a.id]||[]).map(x=>x.t.t).join(' ')].join(' '));
+ const head=norm([L,d.law,ab(d.law),nums.join(' '),nums.map(x=>x.split('/')[0]).join(' '),'αρθρο '+a.n,'αρθ '+a.n,'αρθ. '+a.n,a.n,ab(titleOf(a)),(TOPICS_OF[a.id]||[]).map(x=>ab(x.t.t)).join(' ')].join(' '));
  a.items.forEach((it,k)=>{const txt=it.T?[it.T.cap||'',it.T.cols.join(' '),it.T.rows.map(r=>r.join(' ')).join(' ')].join(' '):it.L.join(' ');
-  IDX.push({type:'it',d,a,it,k,txt:norm(txt+' '+(it.c||'')+' '+parLbl(it)),head})})}));
-D.guide.forEach((g,gi)=>g.cards.forEach(c=>IDX.push({type:'g',g,gi,c,txt:norm(c.h+' '+JSON.stringify(c.b)),head:norm(g.t+' '+c.h)})));
-const TIDX=[];T.forEach(c=>c.topics.forEach(t=>TIDX.push({c,t,txt:norm(t.t+' '+t.k+' '+c.t+' '+refSummary(t))})));
+  IDX.push({type:'it',d,a,it,k,txt:norm(txt+' '+ab(it.c||'')+' '+parLbl(it)),head})})}));
+D.guide.forEach((g,gi)=>g.cards.forEach(c=>IDX.push({type:'g',g,gi,c,txt:norm(ab(c.h+' '+JSON.stringify(c.b))),head:norm(ab(g.t+' '+c.h))})));
+const TIDX=[];T.forEach(c=>c.topics.forEach(t=>TIDX.push({c,t,txt:norm(ab(t.t+' '+t.k+' '+c.t+' '+refSummary(t)))})));
 function search(){const cnt=(s,w)=>{let n=0,i=0;while((i=s.indexOf(w,i))>-1){n++;i+=w.length}return n};
  const tps=TIDX.filter(e=>terms.every(w=>e.txt.includes(w))).slice(0,8);
  const hit=(e,w)=>e.txt.includes(w)||e.head.includes(w);
@@ -227,11 +347,11 @@ function search(){const cnt=(s,w)=>{let n=0,i=0;while((i=s.indexOf(w,i))>-1){n++
  const sc=e=>terms.reduce((s,w)=>s+cnt(e.txt,w)+(e.head.includes(w)?10:0),0)+(e.type==='it'&&(e.it.s==='d'||e.it.s==='x')?-6:0)+(e.type==='g'?-3:0);
  res.sort((a,b)=>sc(b)-sc(a));
  let o='';
- if(tps.length)o+=`<div class="sec" style="margin-top:2px">Θέματα</div><div class="list">`+tps.map(({c,t})=>`<a class="li" href="#t/${c.id}/${t.id}"><span class="tx"><b>${hl(t.t)}</b><small>${esc(c.t)}</small></span><span class="ch">›</span></a>`).join('')+'</div>';
+ if(tps.length)o+=`<div class="sec" style="margin-top:2px">Θέματα</div><div class="list">`+tps.map(({c,t})=>`<a class="li" href="#t/${c.id}/${t.id}"><span class="tx"><b>${ha(t.t)}</b><small>${esc(ab(c.t))}</small></span><span class="ch">${ico('chevR')}</span></a>`).join('')+'</div>';
+ if(!res.length&&!tps.length){m.innerHTML='<div class="empty">Δεν βρέθηκε κάτι.<br>Δοκίμασε άλλη λέξη, λιγότερες λέξεις ή κομμάτι λέξης.</div>';return}
  o+=`<div class="sec">Διατάξεις – ${res.length}${any?' (με οποιαδήποτε λέξη)':''}</div>`;
- if(!res.length&&!tps.length){m.innerHTML='<div class="empty">Δεν βρέθηκε κάτι. Δοκίμασε άλλη λέξη, λιγότερες λέξεις ή κομμάτι λέξης.</div>';return}
  o+=res.slice(0,60).map(e=>{
-  if(e.type==='g')return `<div class="meta"><a href="#g/${e.gi}" style="text-decoration:none">${esc(e.g.t)}</a></div>`+guideCard(e.c);
+  if(e.type==='g')return guideCard(e.c,e.g.t,false);
   const {d,a,it,k}=e;const lines=new Map();
   if(!it.T&&it.L.length>4){const keep=new Set();it.L.forEach((l,i)=>{const n=norm(l);if(terms.some(w=>n.includes(w)))keep.add(i)});
    if(keep.size&&keep.size<it.L.length){keep.add(0);const ls=[];let last=-1;[...keep].sort((x,y)=>x-y).forEach(i=>{if(last>=0&&i>last+1)ls.push({h:'<p class="dim">…</p>'});ls.push(it.L[i]);last=i});if(last<it.L.length-1)ls.push({h:'<p class="dim">…</p>'});lines.set(it,ls)}}
@@ -239,15 +359,16 @@ function search(){const cnt=(s,w)=>{let n=0,i=0;while((i=s.indexOf(w,i))>-1){n++
  if(res.length>60)o+='<div class="meta">Εμφανίζονται οι 60 πιο σχετικές – πρόσθεσε λέξη για πιο στοχευμένα αποτελέσματα.</div>';
  m.innerHTML=o}
 
-// ---------- routing & back
-function parent(h){let x;
- if((x=h.match(/^t\/([^/]+)\//)))return '#c/'+x[1];
- if(/^a\//.test(h))return '#d/'+ART[h.slice(2)]?.d.id;
- if(/^d\//.test(h))return '#laws';
- return '#'}
+/* ---------- interactions */
+m.addEventListener('click',e=>{
+ const ph=e.target.closest('.ph');if(ph){const s=ph.parentElement;s.classList.toggle('closed');ph.setAttribute('aria-expanded',!s.classList.contains('closed'));return}
+ const all=e.target.closest('[data-all]');if(all){const open=all.dataset.all==='open';m.querySelectorAll('.prov').forEach(s=>{s.classList.toggle('closed',!open);s.querySelector('.ph').setAttribute('aria-expanded',open)});return}
+ const a=e.target.closest('a[href^="#"]');if(a&&q.value){q.value='';document.body.classList.remove('searching');if(location.hash===a.getAttribute('href')){e.preventDefault();render();window.scrollTo(0,0)}}});
+function parent(h){let x;if((x=h.match(/^t\/([^/]+)\//)))return '#c/'+x[1];if(/^a\//.test(h))return '#d/'+(ART[h.slice(2)]?ART[h.slice(2)].d.id:'');if(/^d\//.test(h))return '#laws';return '#'}
 let depth=0;
-function render(){const v=q.value.trim();clr.style.display=v?'block':'none';terms=norm(v).split(/\s+/).filter(Boolean);
- const h=decodeURIComponent(location.hash.slice(1));back.style.display=(h||terms.length)?'block':'none';document.body.classList.toggle('inner',!!(h||terms.length));
+function render(){const v=q.value.trim();clr.style.display=v?'flex':'none';terms=norm(v).split(/\s+/).filter(Boolean);
+ const h=decodeURIComponent(location.hash.slice(1));const inner=!!(h||terms.length);
+ back.style.display=inner?'flex':'none';document.body.classList.toggle('inner',inner);if(terms.length)document.body.classList.add('searching');
  if(terms.length){search();return}
  let x;
  if((x=h.match(/^c\/(.+)$/))&&T.find(c=>c.id===x[1]))catView(T.find(c=>c.id===x[1]));
@@ -257,19 +378,20 @@ function render(){const v=q.value.trim();clr.style.display=v?'block':'none';term
  else if((x=h.match(/^a\/(.+)$/))&&ART[x[1]])artView(ART[x[1]]);
  else if((x=h.match(/^g\/(\d+)$/))&&D.guide[+x[1]])guideView(+x[1]);
  else if(h==='pdf')pdfView();else if(h==='about')aboutView();else home()}
-back.onclick=()=>{if(q.value){q.value='';render();return}if(depth>0)history.back();else location.hash=parent(decodeURIComponent(location.hash.slice(1)))};
+back.onclick=()=>{if(q.value||document.body.classList.contains('searching')){q.value='';document.body.classList.remove('searching');render();return}
+ if(depth>0)history.back();else location.hash=parent(decodeURIComponent(location.hash.slice(1)))};
+document.getElementById('sbtn').onclick=()=>{document.body.classList.add('searching');q.focus()};
 let tmr;q.addEventListener('input',()=>{clearTimeout(tmr);tmr=setTimeout(()=>{render();window.scrollTo(0,0)},160)});
 q.addEventListener('keydown',e=>{if(e.key==='Enter')q.blur()});
 clr.onclick=()=>{q.value='';render();q.focus()};
-m.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&q.value){q.value='';if(location.hash===a.getAttribute('href')){e.preventDefault();render();window.scrollTo(0,0)}}});
-document.getElementById('home').onclick=()=>{q.value='';if(location.hash&&location.hash!=='#')location.hash='';else render()};
-window.addEventListener('hashchange',()=>{depth++;render();window.scrollTo(0,0)});
+document.getElementById('home').onclick=()=>{q.value='';document.body.classList.remove('searching');if(location.hash&&location.hash!=='#')location.hash='';else render()};
+window.addEventListener('hashchange',()=>{depth++;if(!q.value)document.body.classList.remove('searching');render();window.scrollTo(0,0)});
 window.addEventListener('popstate',()=>{depth=Math.max(0,depth-2)});
-let fs=17;try{fs=+localStorage.getItem('yef_fs2')||17}catch(e){}
-function setFs(v){fs=Math.max(14,Math.min(24,v));document.documentElement.style.setProperty('--fs',fs+'px');try{localStorage.setItem('yef_fs2',fs)}catch(e){}}
+let fs=17;try{fs=+localStorage.getItem('yefkk_fs')||17}catch(e){}
+function setFs(v){fs=Math.max(14,Math.min(24,v));document.documentElement.style.setProperty('--fs',fs+'px');try{localStorage.setItem('yefkk_fs',fs)}catch(e){}}
 setFs(fs);document.getElementById('fm').onclick=()=>setFs(fs-1);document.getElementById('fp').onclick=()=>setFs(fs+1);
 render();
-if('serviceWorker' in navigator&&location.protocol!=='file:'){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
+if('serviceWorker' in navigator&&location.protocol!=='file:'&&!window.NO_SW){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
 </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 // Service worker: η εφαρμογή δουλεύει offline.
 // Όταν αλλάζεις data.js ή index.html, ανέβασε κατά 1 τον αριθμό VERSION.
-const VERSION = 'yef-v2';
+const VERSION = 'yef-v3';
 const CORE = ['./', 'index.html', 'data.js', 'topics.js', 'manifest.json', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
